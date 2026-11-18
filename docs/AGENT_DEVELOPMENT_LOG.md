@@ -112,3 +112,25 @@ M backend/app/main.py
 ?? backend/tests/helpers.py
 ?? backend/tests/test_auth.py
 ```
+
+Verified milestone commit: `991c84518a2d33df8562c06b47bd53c2b88d62ee`.
+
+## Phase 5 - Farmer and buyer administration
+
+Date (UTC): 2026-11-18T10:43:11.128977+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added editable profiles, farm information, administrator approval/rejection, account activation, transporter directory and staff creation. Trading-profile edits trigger renewed verification.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Backend suite: 7 passed, including farmer/buyer approvals, profile changes, role restrictions and account deactivation.
+
+Files changed at this milestone:
+
+```text
+M backend/app/main.py
+?? backend/app/users.py
+?? backend/tests/test_users.py
+```
