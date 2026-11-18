@@ -44,7 +44,7 @@ All synthetic accounts use **`DemoPass123!`** after seeding:
 | Logistics officer | logistics@tfpmds.demo |
 | Transporter | transporter@tfpmds.demo |
 
-See `docs/DEMO_GUIDE.md` for the complete 14-step journey and negative cases.
+See `docs/DEMO_GUIDE.md` for the complete 14-step journey and negative cases. An optional synthetic SQLite snapshot in `demo/` preserves the observed completed browser journey; see its README before using it.
 
 ## Verification
 

@@ -626,3 +626,35 @@ Files changed at this milestone:
 ?? scripts/build_proposal.py
 ?? scripts/validate_proposal.py
 ```
+
+Verified milestone commit: `426afb3a72b101de451165a3046a0fbe06e66eb5`.
+
+## Phase 17 - Final verification and local handoff
+
+Date (UTC): 2026-11-18T13:27:22.522138+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Preserved the synthetic completed browser journey in a portable SQLite snapshot, verified its API data without changing the file, refreshed test/acceptance evidence, added packaging and release validators, and finalized setup/push guidance. The typed Playwright harness now supplies its base URL explicitly.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Final verify.ps1 passed: backend 28, frontend 5, production build, harness typecheck and UML validation. Snapshot integrity/foreign keys and read-only API checks passed: 13 users, 4 orders, 2 successful simulated payments, 44 SMS records and the six-event delivered journey. The harness typecheck caught an omitted baseURL binding during refinement; it was corrected before the final passing run. Remote and author checks passed; no pushes performed.
+
+Files changed at this milestone:
+
+```text
+M README.md
+ M docs/AGENT_DEVELOPMENT_LOG.md
+ M docs/evidence/acceptance-results.json
+ M docs/evidence/backend-junit.xml
+ M docs/evidence/frontend-junit.xml
+ M frontend/e2e/full-journey.spec.ts
+ M frontend/package.json
+ M scripts/verify.ps1
+?? demo/
+?? docs/evidence/release-verification.json
+?? scripts/export_demo_database.py
+?? scripts/package_delivery.py
+?? scripts/validate_release.py
+```

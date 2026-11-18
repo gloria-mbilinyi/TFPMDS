@@ -1,0 +1,17 @@
+{
+  "result": "passed",
+  "snapshot_sha256": "f100f9927dafb8665bef89fe468201f017da95a613f2c363b707a294d6354815",
+  "snapshot_api_checks": [
+    "admin login",
+    "13 users",
+    "4 orders",
+    "380000 simulated gross TZS",
+    "completed order",
+    "receipt",
+    "44 SMS records",
+    "6 tracking events"
+  ],
+  "official_remote_preserved": true,
+  "repository_local_author_confirmed": true,
+  "pushes_by_agent": 0
+}

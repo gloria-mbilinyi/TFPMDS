@@ -4,6 +4,7 @@ import { test, expect, type Page } from "@playwright/test";
 // Synthetic records are retained as demonstration evidence; no user data is deleted.
 test("fresh registrations to completed delivery and SMS history", async ({
   browser,
+  baseURL,
 }) => {
   const suffix = Date.now().toString();
   const password = "DemoPass123!";
@@ -12,11 +13,11 @@ test("fresh registrations to completed delivery and SMS history", async ({
   const farmerEmail = `farmer.${suffix}@example.com`,
     buyerEmail = `buyer.${suffix}@example.com`;
   const produceName = "Demonstration rice " + suffix;
-  const admin = await browser.newPage(),
-    farmer = await browser.newPage(),
-    buyer = await browser.newPage(),
-    officer = await browser.newPage(),
-    driver = await browser.newPage();
+  const admin = await browser.newPage({ baseURL }),
+    farmer = await browser.newPage({ baseURL }),
+    buyer = await browser.newPage({ baseURL }),
+    officer = await browser.newPage({ baseURL }),
+    driver = await browser.newPage({ baseURL });
   async function login(page: Page, email: string) {
     await page.goto("/login");
     await page.getByLabel("Email address").fill(email);

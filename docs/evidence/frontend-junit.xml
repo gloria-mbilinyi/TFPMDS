@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="5" failures="0" errors="0" time="1.6113153">
-    <testsuite name="src/auth.test.tsx" timestamp="2026-11-18T12:07:00.086Z" hostname="DESKTOP-RA8FDFF" tests="2" failures="0" errors="0" skipped="0" time="0.9864268">
-        <testcase classname="src/auth.test.tsx" name="shows actionable API errors when login fails" time="0.861257">
+<testsuites name="vitest tests" tests="5" failures="0" errors="0" time="1.3494352">
+    <testsuite name="src/auth.test.tsx" timestamp="2026-11-18T12:46:45.936Z" hostname="DESKTOP-RA8FDFF" tests="2" failures="0" errors="0" skipped="0" time="0.8621584">
+        <testcase classname="src/auth.test.tsx" name="shows actionable API errors when login fails" time="0.7644605">
         </testcase>
-        <testcase classname="src/auth.test.tsx" name="fills the chosen demo credentials without submitting automatically" time="0.1222043">
+        <testcase classname="src/auth.test.tsx" name="fills the chosen demo credentials without submitting automatically" time="0.096247">
         </testcase>
     </testsuite>
-    <testsuite name="src/marketplace.test.tsx" timestamp="2026-11-18T12:07:00.089Z" hostname="DESKTOP-RA8FDFF" tests="3" failures="0" errors="0" skipped="0" time="0.6248885">
-        <testcase classname="src/marketplace.test.tsx" name="submits filters to the API and presents an empty marketplace result" time="0.6169466">
+    <testsuite name="src/marketplace.test.tsx" timestamp="2026-11-18T12:46:45.938Z" hostname="DESKTOP-RA8FDFF" tests="3" failures="0" errors="0" skipped="0" time="0.4872768">
+        <testcase classname="src/marketplace.test.tsx" name="submits filters to the API and presents an empty marketplace result" time="0.481916">
         </testcase>
-        <testcase classname="src/marketplace.test.tsx" name="translates validation errors into useful field messages" time="0.0038696">
+        <testcase classname="src/marketplace.test.tsx" name="translates validation errors into useful field messages" time="0.0027533">
         </testcase>
-        <testcase classname="src/marketplace.test.tsx" name="escapes CSV cells and neutralizes spreadsheet formulas" time="0.001303">
+        <testcase classname="src/marketplace.test.tsx" name="escapes CSV cells and neutralizes spreadsheet formulas" time="0.0005987">
         </testcase>
     </testsuite>
 </testsuites>

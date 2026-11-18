@@ -1,0 +1,18 @@
+{
+  "purpose": "Optional synthetic local demo snapshot, including the observed browser journey.",
+  "source": "Working local academic demo; passwords are hashes of the documented public demo password.",
+  "contains_real_money_or_sms": false,
+  "contains_jwt_secret": false,
+  "counts": {
+    "market_prices": 8,
+    "users": 13,
+    "notifications": 44,
+    "produce": 9,
+    "purchase_orders": 4,
+    "order_items": 4,
+    "payments": 2,
+    "shipments": 2,
+    "payment_receipts": 2,
+    "tracking_events": 11
+  }
+}
