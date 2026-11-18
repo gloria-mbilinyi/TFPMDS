@@ -1,4 +1,5 @@
 """Public response projections. Never expose password hashes or private profiles."""
+from .domain import SHIPMENT_TRANSITIONS
 def fields(obj, *names):
     return {name: getattr(obj, name) for name in names}
 
@@ -21,6 +22,7 @@ def payment_view(record):
 def shipment_view(record):
     return {**fields(record, 'id', 'order_id', 'transporter_id', 'status', 'tracking_code', 'created_at'),
             'transporter_name': record.transporter.name if record.transporter else None,
+            'next_states': sorted(SHIPMENT_TRANSITIONS[record.status]),
             'farmer_name': record.order.farmer.name, 'buyer_name': record.order.buyer.name,
             'pickup': record.order.farmer.location or record.order.farmer.region,
             'destination': record.order.delivery_address,

@@ -426,3 +426,50 @@ M frontend/src/App.tsx
  M frontend/src/styles.css
 ?? frontend/src/AdminPages.tsx
 ```
+
+Verified milestone commit: `2001f388b8b5a1d58645438af4486771b2194dae`.
+
+## Phase 15a - Invariant regression checks
+
+Date (UTC): 2026-11-18T11:56:28.609838+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added competing-buyer and concurrent-callback tests, atomic order/shipment transitions, shared shipment vocabulary, state constraints and BIGINT monetary totals. Added marketplace/error/CSV frontend tests and formatted TypeScript for review.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Backend suite: 25 passed; frontend suite: 5 passed; production build passed. Initial optional PDF dependency selection pulled unnecessary packages, so that install was cancelled and only ReportLab/Pillow/pypdf/Markdown were installed.
+
+Files changed at this milestone:
+
+```text
+M backend/app/logistics.py
+ M backend/app/models.py
+ M backend/app/payments.py
+ M backend/app/reporting.py
+ M backend/app/views.py
+ M frontend/package-lock.json
+ M frontend/package.json
+ M frontend/src/AdminPages.tsx
+ M frontend/src/App.tsx
+ M frontend/src/AuthPages.tsx
+ M frontend/src/Dashboard.tsx
+ M frontend/src/LogisticsPages.tsx
+ M frontend/src/Marketplace.tsx
+ M frontend/src/NotificationPage.tsx
+ M frontend/src/OrderPages.tsx
+ M frontend/src/ProducePages.tsx
+ M frontend/src/api.ts
+ M frontend/src/auth.test.tsx
+ M frontend/src/components.tsx
+ M frontend/src/main.tsx
+ M frontend/src/session.tsx
+ M frontend/src/styles.css
+ M frontend/src/test-setup.ts
+ M frontend/src/types.ts
+ M frontend/vite.config.ts
+?? backend/app/domain.py
+?? backend/tests/test_invariants.py
+?? frontend/src/marketplace.test.tsx
+```

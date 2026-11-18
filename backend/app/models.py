@@ -1,10 +1,11 @@
 """Portable relational model. Currency = integer TZS; stock = integer kg."""
 from datetime import datetime, timezone, date
 
-from sqlalchemy import Boolean, CheckConstraint, Date, DateTime, ForeignKey, Integer, String, Text, UniqueConstraint
+from sqlalchemy import BigInteger, Boolean, CheckConstraint, Date, DateTime, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .db import Base
+from .domain import ORDER_STATES, SHIPMENT_TRANSITIONS
 
 
 def now():
@@ -61,12 +62,12 @@ class Produce(Timestamped, Base):
 
 class PurchaseOrder(Timestamped, Base):
     __tablename__ = 'purchase_orders'
-    __table_args__ = (UniqueConstraint('buyer_id', 'idempotency_key'), CheckConstraint('total_tzs > 0'))
+    __table_args__ = (UniqueConstraint('buyer_id', 'idempotency_key'), CheckConstraint('total_tzs > 0'), CheckConstraint('status IN (' + ','.join(repr(s) for s in ORDER_STATES) + ')'))
     id: Mapped[int] = mapped_column(primary_key=True)
     buyer_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True)
     farmer_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True)
     status: Mapped[str] = mapped_column(String(30), default='pending_farmer_approval')
-    total_tzs: Mapped[int] = mapped_column(Integer)
+    total_tzs: Mapped[int] = mapped_column(BigInteger)
     idempotency_key: Mapped[str] = mapped_column(String(80))
     fingerprint: Mapped[str] = mapped_column(String(64))
     delivery_address: Mapped[str] = mapped_column(String(250))
@@ -89,13 +90,13 @@ class OrderItem(Base):
 
 class Payment(Timestamped, Base):
     __tablename__ = 'payments'
-    __table_args__ = (UniqueConstraint('buyer_id', 'idempotency_key'), CheckConstraint('amount_tzs > 0'))
+    __table_args__ = (UniqueConstraint('buyer_id', 'idempotency_key'), CheckConstraint('amount_tzs > 0'), CheckConstraint("status IN ('pending','successful','failed','cancelled')"), CheckConstraint("provider IN ('mpesa','airtel_money','tigo_pesa')"))
     id: Mapped[int] = mapped_column(primary_key=True)
     order_id: Mapped[int] = mapped_column(ForeignKey('purchase_orders.id'), index=True)
     buyer_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
     provider: Mapped[str] = mapped_column(String(20))
     phone: Mapped[str] = mapped_column(String(16))
-    amount_tzs: Mapped[int] = mapped_column(Integer)
+    amount_tzs: Mapped[int] = mapped_column(BigInteger)
     status: Mapped[str] = mapped_column(String(20), default='pending')
     reference: Mapped[str] = mapped_column(String(60), unique=True)
     idempotency_key: Mapped[str] = mapped_column(String(80))
@@ -107,11 +108,12 @@ class PaymentReceipt(Timestamped, Base):
     payment_id: Mapped[int] = mapped_column(ForeignKey('payments.id'), unique=True)
     order_id: Mapped[int] = mapped_column(ForeignKey('purchase_orders.id'), unique=True)
     number: Mapped[str] = mapped_column(String(40), unique=True)
-    amount_tzs: Mapped[int] = mapped_column(Integer)
+    amount_tzs: Mapped[int] = mapped_column(BigInteger)
 
 
 class Shipment(Timestamped, Base):
     __tablename__ = 'shipments'
+    __table_args__ = (CheckConstraint('status IN (' + ','.join(repr(s) for s in SHIPMENT_TRANSITIONS) + ')'),)
     id: Mapped[int] = mapped_column(primary_key=True)
     order_id: Mapped[int] = mapped_column(ForeignKey('purchase_orders.id'), unique=True)
     transporter_id: Mapped[int | None] = mapped_column(ForeignKey('users.id'), nullable=True)

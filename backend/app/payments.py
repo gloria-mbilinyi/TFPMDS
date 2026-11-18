@@ -24,7 +24,10 @@ def apply_outcome(db, payment, outcome):
         require(payment.status == outcome, 409, 'terminal_payment', 'A terminal payment outcome cannot be changed.')
         return payment_view(payment)
     result = db.execute(update(Payment).where(Payment.id == payment.id, Payment.status == 'pending').values(status=outcome))
-    require(result.rowcount == 1, 409, 'payment_changed', 'Payment changed. Verify its status before retrying.')
+    if result.rowcount != 1:
+        db.refresh(payment)
+        require(payment.status == outcome, 409, 'payment_changed', 'Payment changed. Verify its status before retrying.')
+        return payment_view(payment)
     order = find_or_404(db, PurchaseOrder, payment.order_id)
     if outcome == 'successful':
         transition(db, order, {'awaiting_payment'}, 'paid')

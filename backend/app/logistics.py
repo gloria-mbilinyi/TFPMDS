@@ -6,24 +6,13 @@ from .db import get_db
 from .errors import require
 from .models import PaymentReceipt, PurchaseOrder, Shipment, TrackingEvent, User
 from .notifications import notify
+from .orders import transition
 from .schemas import Assign, ShipmentUpdate
 from .security import authorize, current_user, find_or_404
 from .views import shipment_view
 
 router = APIRouter(prefix='/api/shipments', tags=['logistics and shipment tracking'])
-SHIPMENT_TRANSITIONS = {
-    'pending_arrangement': {'awaiting_transporter', 'assignment_failed'},
-    'awaiting_transporter': {'assignment_failed'},
-    'assignment_failed': {'awaiting_transporter'},
-    'assigned': {'ready_for_pickup', 'assignment_failed'},
-    'ready_for_pickup': {'picked_up', 'delivery_failed'},
-    'picked_up': {'in_transit', 'delivery_failed'},
-    'in_transit': {'delivered', 'delivery_failed'},
-    'delivery_failed': {'ready_for_pickup', 'return_requested'},
-    'delivered': {'return_requested'},
-    'return_requested': {'returned'},
-    'returned': set(),
-}
+from .domain import SHIPMENT_TRANSITIONS, ASSIGNABLE
 
 
 def access(shipment, user):
@@ -64,10 +53,10 @@ def assign(shipment_id: int, data: Assign, user: User = Depends(current_user), d
     require(transporter.role == 'transporter' and transporter.active and transporter.status == 'approved',
             422, 'invalid_transporter', 'Select an active approved transporter.')
     result = db.execute(update(Shipment).where(Shipment.id == shipment.id, Shipment.status.in_(
-        ['pending_arrangement', 'awaiting_transporter', 'assignment_failed', 'assigned'])).values(status='assigned', transporter_id=transporter.id))
+        ASSIGNABLE)).values(status='assigned', transporter_id=transporter.id))
     require(result.rowcount == 1)
     db.refresh(shipment)
-    shipment.order.status = 'processing_delivery'
+    transition(db, shipment.order, {'paid', 'processing_delivery'}, 'processing_delivery')
     log_event(db, shipment, user, shipment.order.farmer.region, f'Transporter assigned: {transporter.name}.')
     notify(db, transporter, 'delivery', f'You are assigned shipment {shipment.tracking_code}.')
     return shipment_view(shipment)
@@ -91,9 +80,15 @@ def progress(shipment_id: int, data: ShipmentUpdate, user: User = Depends(curren
     db.refresh(shipment)
     if data.status == 'assignment_failed':
         shipment.transporter_id = None
-    if data.status in {'in_transit', 'delivered', 'return_requested', 'returned'}:
-        shipment.order.status = data.status
-    elif data.status == 'ready_for_pickup':
-        shipment.order.status = 'processing_delivery'
+    order_moves = {
+        'in_transit': ({'processing_delivery'}, 'in_transit'),
+        'delivered': ({'in_transit'}, 'delivered'),
+        'return_requested': ({'in_transit', 'processing_delivery', 'delivered', 'completed'}, 'return_requested'),
+        'returned': ({'return_requested'}, 'returned'),
+        'ready_for_pickup': ({'processing_delivery', 'in_transit'}, 'processing_delivery'),
+    }
+    if data.status in order_moves:
+        expected, destination = order_moves[data.status]
+        transition(db, shipment.order, expected, destination)
     log_event(db, shipment, user, data.location, data.note)
     return shipment_view(shipment)

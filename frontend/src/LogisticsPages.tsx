@@ -1,17 +1,322 @@
-import {useState,type FormEvent} from 'react';
-import {ArrowLeft,ArrowRight,MapPin,PackageCheck,Truck} from 'lucide-react';
-import {Link,useParams} from 'react-router-dom';
-import {date,human,post} from './api';
-import {Badge,Empty,ErrorBox,Loading,PageTitle,Success,useData} from './components';
-import {useSession} from './session';
-import type {Shipment,User} from './types';
+import { useState, type FormEvent } from "react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  MapPin,
+  PackageCheck,
+  Truck,
+} from "lucide-react";
+import { Link, useParams } from "react-router-dom";
+import { date, human, post } from "./api";
+import {
+  Badge,
+  Empty,
+  ErrorBox,
+  Loading,
+  PageTitle,
+  Success,
+  useData,
+} from "./components";
+import { useSession } from "./session";
+import type { Shipment, User } from "./types";
 
-const transitions:Record<string,string[]>={pending_arrangement:['awaiting_transporter','assignment_failed'],awaiting_transporter:['assignment_failed'],assignment_failed:['awaiting_transporter'],assigned:['ready_for_pickup','assignment_failed'],ready_for_pickup:['picked_up','delivery_failed'],picked_up:['in_transit','delivery_failed'],in_transit:['delivered','delivery_failed'],delivery_failed:['ready_for_pickup','return_requested'],delivered:['return_requested'],return_requested:['returned'],returned:[]};
-export function Shipments(){const {user}=useSession();const {data,error,loading}=useData<Shipment[]>('/shipments');return <><PageTitle eyebrow="FROM FARM TO DESTINATION" title={user?.role==='transporter'?'Transporter dashboard':user?.role==='logistics'?'Logistics dashboard':'Your shipments'} description={user?.role==='transporter'?'Your assigned pickups and deliveries. Record each milestone as it happens.':'Coordinate deliveries and follow every shipment with a clear tracking history.'}/><ErrorBox message={error}/>{loading?<Loading/>:!data?.length?<Empty>No shipments yet. Confirmed simulated payments create delivery requests.</Empty>:<div className="stack">{data.map(s=><article className="panel" key={s.id}><div className="section-heading"><div><h2>{s.tracking_code}</h2><p className="muted">Order #{s.order_id} · {s.farmer_name} → {s.buyer_name}</p></div><Badge status={s.status}/></div><div className="shipment-route"><div><MapPin size={18}/><span><small>PICKUP</small><strong>{s.pickup}</strong></span></div><span className="route-line"/><Truck size={20}/><span className="route-line"/><div><MapPin size={18}/><span><small>DESTINATION</small><strong>{s.destination}</strong></span></div></div><div className="row between wrap"><p className="muted">Transporter: {s.transporter_name||'Awaiting assignment'}</p><Link to={`/tracking/${s.id}`} className="btn outline small">{['logistics','administrator'].includes(user?.role||'')?'Manage & track':'View tracking'}<ArrowRight size={14}/></Link></div></article>)}</div>}</>}
+export function Shipments() {
+  const { user } = useSession();
+  const { data, error, loading } = useData<Shipment[]>("/shipments");
+  return (
+    <>
+      <PageTitle
+        eyebrow="FROM FARM TO DESTINATION"
+        title={
+          user?.role === "transporter"
+            ? "Transporter dashboard"
+            : user?.role === "logistics"
+              ? "Logistics dashboard"
+              : "Your shipments"
+        }
+        description={
+          user?.role === "transporter"
+            ? "Your assigned pickups and deliveries. Record each milestone as it happens."
+            : "Coordinate deliveries and follow every shipment with a clear tracking history."
+        }
+      />
+      <ErrorBox message={error} />
+      {loading ? (
+        <Loading />
+      ) : !data?.length ? (
+        <Empty>
+          No shipments yet. Confirmed simulated payments create delivery
+          requests.
+        </Empty>
+      ) : (
+        <div className="stack">
+          {data.map((s) => (
+            <article className="panel" key={s.id}>
+              <div className="section-heading">
+                <div>
+                  <h2>{s.tracking_code}</h2>
+                  <p className="muted">
+                    Order #{s.order_id} · {s.farmer_name} → {s.buyer_name}
+                  </p>
+                </div>
+                <Badge status={s.status} />
+              </div>
+              <div className="shipment-route">
+                <div>
+                  <MapPin size={18} />
+                  <span>
+                    <small>PICKUP</small>
+                    <strong>{s.pickup}</strong>
+                  </span>
+                </div>
+                <span className="route-line" />
+                <Truck size={20} />
+                <span className="route-line" />
+                <div>
+                  <MapPin size={18} />
+                  <span>
+                    <small>DESTINATION</small>
+                    <strong>{s.destination}</strong>
+                  </span>
+                </div>
+              </div>
+              <div className="row between wrap">
+                <p className="muted">
+                  Transporter: {s.transporter_name || "Awaiting assignment"}
+                </p>
+                <Link to={`/tracking/${s.id}`} className="btn outline small">
+                  {["logistics", "administrator"].includes(user?.role || "")
+                    ? "Manage & track"
+                    : "View tracking"}
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}
 
-export function Tracking(){const {id}=useParams(),{user}=useSession();const shipment=useData<Shipment>('/shipments/'+id);const staff=['administrator','logistics'].includes(user?.role||'');const drivers=useData<User[]>(staff?'/users/transporters':'/auth/me');const [error,setError]=useState(''),[saved,setSaved]=useState(''),[busy,setBusy]=useState(false);
- async function assign(e:FormEvent<HTMLFormElement>){e.preventDefault();setError('');setBusy(true);try{const data=new FormData(e.currentTarget);await post(`/shipments/${id}/assign`,{transporter_id:Number(data.get('transporter_id'))});setSaved('Transporter assigned and notified.');await shipment.reload();}catch(e){setError((e as Error).message);}finally{setBusy(false);}}
- async function update(e:FormEvent<HTMLFormElement>){e.preventDefault();setError('');setBusy(true);try{await post(`/shipments/${id}/status`,Object.fromEntries(new FormData(e.currentTarget)));setSaved('Tracking milestone recorded.');await shipment.reload();}catch(e){setError((e as Error).message);}finally{setBusy(false);}}
- const s=shipment.data;const allowed=s?(transitions[s.status]||[]).filter(state=>staff||!['awaiting_transporter','assignment_failed','return_requested'].includes(state)):[];
- return <><Link to="/shipments" className="text-link"><ArrowLeft size={14}/>Back to shipments</Link><PageTitle eyebrow="SHIPMENT TRACKING" title={s?.tracking_code||'Shipment details'} description={s?`Order #${s.order_id} · ${s.farmer_name} → ${s.buyer_name}`:undefined} actions={s&&<Badge status={s.status}/>}/><ErrorBox message={error||shipment.error}/>{saved&&<Success>{saved}</Success>}{shipment.loading?<Loading/>:s&&<div className="data-grid"><section className="panel"><h2>The journey</h2><div className="shipment-address"><p><small>PICKUP</small>{s.pickup}</p><p><small>DELIVERY ADDRESS</small>{s.destination}</p><p><small>TRANSPORTER</small>{s.transporter_name||'Not yet assigned'}</p></div><div className="timeline">{s.history.slice().reverse().map((event,i)=><div className={`timeline-event ${i===0?'latest':''}`} key={event.id}><span className="timeline-dot"/><div><strong>{human(event.status)}</strong><p><MapPin size={12}/>{event.location}</p><small>{date(event.created_at)} · {event.note}</small></div></div>)}</div></section><div className="stack">{staff&&['pending_arrangement','awaiting_transporter','assignment_failed','assigned'].includes(s.status)&&<section className="panel"><h2>Arrange transport</h2><p className="detail-description">Assign an approved transporter to this paid order.</p><form onSubmit={assign}><label>Transporter<select name="transporter_id" required defaultValue=""><option value="" disabled>Select a transporter</option>{Array.isArray(drivers.data)&&drivers.data.map(d=><option value={d.id} key={d.id}>{d.name} · {d.region}</option>)}</select></label><button className="btn primary mt" disabled={busy}>Assign transporter<Truck size={15}/></button></form></section>}{(staff||user?.id===s.transporter_id)&&allowed.length>0&&<section className="panel"><h2>Record a delivery milestone</h2><p className="detail-description">Confirm the actual location and add a note. Returns require an explicit logistics decision.</p><form key={s.status} onSubmit={update}><div className="form-grid"><label>Next status<select name="status" required>{allowed.map(state=><option value={state} key={state}>{human(state)}</option>)}</select></label><label>Current location<input name="location" required minLength={2} maxLength={160} placeholder="e.g. Chalinze"/></label><label className="wide">Tracking note<textarea name="note" required minLength={3} maxLength={300} placeholder="Describe the milestone or exception"/></label></div><button disabled={busy} className="btn primary">Save milestone<PackageCheck size={16}/></button></form></section>}<section className="panel"><h2>Clear visibility, shared progress</h2><p className="detail-description">The buyer and farmer see the same tracking events. Updates also create in-app notifications and simulated SMS records.</p>{s.status==='delivered'&&user?.role==='buyer'&&<Link to="/orders" className="btn primary">Confirm receipt in orders<ArrowRight size={15}/></Link>}</section></div></div>}</>
+export function Tracking() {
+  const { id } = useParams(),
+    { user } = useSession();
+  const shipment = useData<Shipment>("/shipments/" + id);
+  const staff = ["administrator", "logistics"].includes(user?.role || "");
+  const drivers = useData<User[]>(staff ? "/users/transporters" : "/auth/me");
+  const [error, setError] = useState(""),
+    [saved, setSaved] = useState(""),
+    [busy, setBusy] = useState(false);
+  async function assign(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError("");
+    setBusy(true);
+    try {
+      const data = new FormData(e.currentTarget);
+      await post(`/shipments/${id}/assign`, {
+        transporter_id: Number(data.get("transporter_id")),
+      });
+      setSaved("Transporter assigned and notified.");
+      await shipment.reload();
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function update(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError("");
+    setBusy(true);
+    try {
+      await post(
+        `/shipments/${id}/status`,
+        Object.fromEntries(new FormData(e.currentTarget)),
+      );
+      setSaved("Tracking milestone recorded.");
+      await shipment.reload();
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
+  const s = shipment.data;
+  const allowed = s
+    ? (s.next_states || []).filter(
+        (state) =>
+          staff ||
+          ![
+            "awaiting_transporter",
+            "assignment_failed",
+            "return_requested",
+          ].includes(state),
+      )
+    : [];
+  return (
+    <>
+      <Link to="/shipments" className="text-link">
+        <ArrowLeft size={14} />
+        Back to shipments
+      </Link>
+      <PageTitle
+        eyebrow="SHIPMENT TRACKING"
+        title={s?.tracking_code || "Shipment details"}
+        description={
+          s
+            ? `Order #${s.order_id} · ${s.farmer_name} → ${s.buyer_name}`
+            : undefined
+        }
+        actions={s && <Badge status={s.status} />}
+      />
+      <ErrorBox message={error || shipment.error} />
+      {saved && <Success>{saved}</Success>}
+      {shipment.loading ? (
+        <Loading />
+      ) : (
+        s && (
+          <div className="data-grid">
+            <section className="panel">
+              <h2>The journey</h2>
+              <div className="shipment-address">
+                <p>
+                  <small>PICKUP</small>
+                  {s.pickup}
+                </p>
+                <p>
+                  <small>DELIVERY ADDRESS</small>
+                  {s.destination}
+                </p>
+                <p>
+                  <small>TRANSPORTER</small>
+                  {s.transporter_name || "Not yet assigned"}
+                </p>
+              </div>
+              <div className="timeline">
+                {s.history
+                  .slice()
+                  .reverse()
+                  .map((event, i) => (
+                    <div
+                      className={`timeline-event ${i === 0 ? "latest" : ""}`}
+                      key={event.id}
+                    >
+                      <span className="timeline-dot" />
+                      <div>
+                        <strong>{human(event.status)}</strong>
+                        <p>
+                          <MapPin size={12} />
+                          {event.location}
+                        </p>
+                        <small>
+                          {date(event.created_at)} · {event.note}
+                        </small>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </section>
+            <div className="stack">
+              {staff &&
+                [
+                  "pending_arrangement",
+                  "awaiting_transporter",
+                  "assignment_failed",
+                  "assigned",
+                ].includes(s.status) && (
+                  <section className="panel">
+                    <h2>Arrange transport</h2>
+                    <p className="detail-description">
+                      Assign an approved transporter to this paid order.
+                    </p>
+                    <form onSubmit={assign}>
+                      <label>
+                        Transporter
+                        <select name="transporter_id" required defaultValue="">
+                          <option value="" disabled>
+                            Select a transporter
+                          </option>
+                          {Array.isArray(drivers.data) &&
+                            drivers.data.map((d) => (
+                              <option value={d.id} key={d.id}>
+                                {d.name} · {d.region}
+                              </option>
+                            ))}
+                        </select>
+                      </label>
+                      <button className="btn primary mt" disabled={busy}>
+                        Assign transporter
+                        <Truck size={15} />
+                      </button>
+                    </form>
+                  </section>
+                )}
+              {(staff || user?.id === s.transporter_id) &&
+                allowed.length > 0 && (
+                  <section className="panel">
+                    <h2>Record a delivery milestone</h2>
+                    <p className="detail-description">
+                      Confirm the actual location and add a note. Returns
+                      require an explicit logistics decision.
+                    </p>
+                    <form key={s.status} onSubmit={update}>
+                      <div className="form-grid">
+                        <label>
+                          Next status
+                          <select name="status" required>
+                            {allowed.map((state) => (
+                              <option value={state} key={state}>
+                                {human(state)}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                        <label>
+                          Current location
+                          <input
+                            name="location"
+                            required
+                            minLength={2}
+                            maxLength={160}
+                            placeholder="e.g. Chalinze"
+                          />
+                        </label>
+                        <label className="wide">
+                          Tracking note
+                          <textarea
+                            name="note"
+                            required
+                            minLength={3}
+                            maxLength={300}
+                            placeholder="Describe the milestone or exception"
+                          />
+                        </label>
+                      </div>
+                      <button disabled={busy} className="btn primary">
+                        Save milestone
+                        <PackageCheck size={16} />
+                      </button>
+                    </form>
+                  </section>
+                )}
+              <section className="panel">
+                <h2>Clear visibility, shared progress</h2>
+                <p className="detail-description">
+                  The buyer and farmer see the same tracking events. Updates
+                  also create in-app notifications and simulated SMS records.
+                </p>
+                {s.status === "delivered" && user?.role === "buyer" && (
+                  <Link to="/orders" className="btn primary">
+                    Confirm receipt in orders
+                    <ArrowRight size={15} />
+                  </Link>
+                )}
+              </section>
+            </div>
+          </div>
+        )
+      )}
+    </>
+  );
 }

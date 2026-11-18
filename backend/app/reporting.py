@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from sqlalchemy import func, select
+from sqlalchemy import BigInteger, cast, func, select
 from sqlalchemy.orm import Session
 
 from .db import get_db
@@ -16,7 +16,7 @@ def summary(user: User = Depends(current_user), db: Session = Depends(get_db)):
     def count(model, *conditions):
         return db.scalar(select(func.count()).select_from(model).where(*conditions))
     by_crop = db.execute(select(OrderItem.produce_name, func.sum(OrderItem.quantity_kg),
-                                func.sum(OrderItem.quantity_kg * OrderItem.unit_price_tzs))
+                                func.sum(cast(OrderItem.quantity_kg, BigInteger) * OrderItem.unit_price_tzs))
                          .join(PurchaseOrder, OrderItem.order_id == PurchaseOrder.id)
                          .join(Payment, Payment.order_id == PurchaseOrder.id)
                          .where(Payment.status == 'successful').group_by(OrderItem.produce_name)).all()
