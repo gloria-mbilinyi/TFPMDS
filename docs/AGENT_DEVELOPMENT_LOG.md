@@ -57,3 +57,30 @@ M .gitignore
 ?? docs/requirements.json
 ?? scripts/requirements_catalogue.py
 ```
+
+Verified milestone commit: `6a5737846253a26a8cb5eec9b9f9777d7afc7ff4`.
+
+## Phase 3 - Database and backend foundation
+
+Date (UTC): 2026-11-18T10:41:53.417759+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Implemented 11 SQLAlchemy tables, relational constraints, database sessions, health endpoint and conflict handling.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: pytest test_foundation.py: 2 passed. Dependency installation completed after initial attempts ran before pytest was installed; no application defect was involved.
+
+Files changed at this milestone:
+
+```text
+M scripts/record_milestone.py
+ M scripts/requirements_catalogue.py
+?? backend/app/db.py
+?? backend/app/errors.py
+?? backend/app/main.py
+?? backend/app/models.py
+?? backend/tests/conftest.py
+?? backend/tests/test_foundation.py
+```

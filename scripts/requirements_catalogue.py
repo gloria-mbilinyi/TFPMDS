@@ -1,4 +1,4 @@
-"""Freeze the master brief's 76 functional acceptance requirements."""
+"""Freeze the master brief's 61 functional acceptance requirements."""
 import json
 from pathlib import Path
 

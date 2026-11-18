@@ -15,6 +15,7 @@ parser.add_argument('--phase', required=True)
 parser.add_argument('--summary', required=True)
 parser.add_argument('--checks', required=True)
 parser.add_argument('--decision', default='Follow the approved local-only development plan.')
+parser.add_argument('--paths', nargs='+', default=['.'])
 args = parser.parse_args()
 
 def git(*parts):
@@ -23,14 +24,14 @@ def git(*parts):
 assert git('config', '--local', '--get', 'user.name') == 'prettyglory'
 assert git('config', '--local', '--get', 'user.email') == 'gloriambilinyi5@gmail.com'
 log = ROOT / 'docs' / 'AGENT_DEVELOPMENT_LOG.md'
-changed = git('status', '--short')
+changed = git('status', '--short', '--', *args.paths)
 assert changed, 'No changes; refusing an empty milestone.'
 with log.open('a', encoding='utf-8') as stream:
     stream.write(f'\n## {args.phase}\n\nDate (UTC): {datetime.now(timezone.utc).isoformat()}\n\n'
                  'Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.\n\n'
                  f'Agent work: {args.summary}\n\nTechnical decision: {args.decision}\n\n'
                  f'Checks actually executed: {args.checks}\n\nFiles changed at this milestone:\n\n```text\n{changed}\n```\n')
-git('add', '--all')
+git('add', '--all', '--', *args.paths, 'docs/AGENT_DEVELOPMENT_LOG.md')
 print(git('commit', '-m', args.message))
 sha = git('rev-parse', 'HEAD')
 with log.open('a', encoding='utf-8') as stream:
