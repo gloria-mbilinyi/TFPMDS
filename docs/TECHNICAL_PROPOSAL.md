@@ -6,6 +6,20 @@
 
 Computer Engineering software engineering project. Academic prototype, version 1.0.0. Prepared under the direction of the project owner, GitHub account `gloria-mbilinyi`, with disclosed Codex assistance. 18 November 2026.
 
+Institution: Dar es Salaam Institute of Technology (DIT)
+
+Programme: Bachelor of Engineering in Computer Engineering
+
+Student: Gloria Beneth Mbilinyi
+
+Registration number: [To be completed]
+
+Course or module name: [To be completed]
+
+Lecturer or supervisor: [To be completed]
+
+Submission date: [To be completed]
+
 Official repository: https://github.com/gloria-mbilinyi/TFPMDS
 
 This document reports implemented and verified local behavior. It is not an official Ministry publication or a claim of a deployed government service. Payments, SMS, users and reference prices in the demonstration are synthetic.
@@ -20,7 +34,7 @@ The application uses React, TypeScript and Tailwind CSS for the interface; FastA
 
 All 61 functional bullet requirements in the brief are represented in the acceptance catalogue and supported by implementation and named passing tests. The verified automated result is 28 backend tests and five frontend tests passed, with no failures. The production frontend build and eight editable UML models also passed their recorded checks. A complete 14-step journey with fresh farmer and buyer registrations was verified through the supported in-app browser, including CSV download and a mobile viewport check. Standard Playwright browser launch was blocked by the restricted shell; the supplied harness was typechecked and is not reported as a separate passing run.
 
-The 100% figure measures functional acceptance in this local simulated scope. It is not a statement of complete code coverage, production readiness, formal verification or real provider integration. Local Git milestones preserve the genuine development process. No commits were pushed, no collaborator was added and no repository ownership was changed.
+The 100% figure measures functional acceptance in this local simulated scope. It is not a statement of complete code coverage, production readiness, formal verification or real provider integration. Local Git milestones preserve the genuine development process. Codex created the initial 26 commits locally without pushing. The project owner subsequently completed the human-authorized push to `gloria-mbilinyi/TFPMDS`; the published baseline is `ddc2e8aacc48ece0dfad27b19e5f26317f56cd58`. GitHub's read-only commit listing confirmed those 26 commits during this correction review. These academic corrections remain local for the owner to push. No collaborator was added and repository ownership was preserved.
 
 ## 2. Introduction
 
@@ -119,7 +133,7 @@ The persistence layer does not import API feature modules. Authentication and no
 
 The interaction begins with validation and pending registration. Invalid input is not persisted. Administrator review and approved-account guards precede trading. Ordering reserves stock atomically and branches on farmer acceptance/rejection. Payment branches on success, failure or cancellation; only success creates a receipt and shipment. Logistics assignment precedes transporter progress, shared tracking and buyer completion.
 
-The four figures below are readable panels of that single canonical diagram, with repeated lifeline headers. They are not four separate sequence models. Large landscape sheets preserve message and guard readability in the PDF.
+The four figures below represent the four processes of that single canonical diagram. The A4 publication divides each process into consecutive message excerpts with larger labels and repeated active lifeline headers. These are views of the same interaction, not separate sequence models. Every numbered message, guard and logical notification is retained. The canonical draw.io source also retains the complete combined-fragment geometry and all 15 participants. Inactive lifelines are omitted only from individual publication excerpts.
 
 ![Sequence model, process 1: Farmer registration](uml/previews/sequence-process-1.png)
 
@@ -133,7 +147,7 @@ The four figures below are readable panels of that single canonical diagram, wit
 
 `uml/communication.drawio` is one communication model corresponding to the sequence. A shared source catalogue drives both diagrams, preserving object identities, message numbers, conditions and the nested callback number `3.6.1`. Four collaboration views repeat the same objects by process for readability. Links carry numbered interactions and the adjacent message register retains complete descriptions.
 
-The communication view emphasizes which collaborators exchange information rather than introducing a second time-ordered workflow. The generated validator confirms that all 84 messages and all 15 participants are present in both models. As with the sequence, the mock SMS/callback notation describes logical events; actual local notification recording occurs within the request transaction.
+The communication view emphasizes which collaborators exchange information rather than introducing a second time-ordered workflow. The generated validator confirms that all 84 messages and all 15 participants are present in both models. The A4 publication separates collaboration excerpts and their complete numbered message registers to keep the labels readable. As with the sequence, the mock SMS/callback notation describes logical events; actual local notification recording occurs within the request transaction.
 
 ![Communication model, process 1: Registration collaboration](uml/previews/communication-process-1.png)
 
@@ -257,7 +271,7 @@ Codex inspected the empty repository and local tools, documented architecture/re
 
 `AGENT_DEVELOPMENT_LOG.md` separates human guidance from agent plans, actual changes, decisions, tests, errors, corrections and commit hashes. Hashes are appended after their commits and preserved in a later commit. A closing ledger records previous milestone hashes without attempting an impossible self-referential commit hash. The final closing commit is discoverable in Git history.
 
-The methodology also records limitations honestly. Initial shell browser launches failed, a draft documentation patch was corrected, some selectors needed refinement and a tracking assertion ran before React navigation completed. None of these attempts was substituted for a verified outcome. The final browser evidence records the successful corrected journey. No push, collaborator addition, history rewriting or global identity change was performed.
+The methodology also records limitations honestly. Initial shell browser launches failed, a draft documentation patch was corrected, some selectors needed refinement and a tracking assertion ran before React navigation completed. None of these attempts was substituted for a verified outcome. The final browser evidence records the successful corrected journey. Codex did not push, add a collaborator, rewrite history or change the global Git identity. The project owner's subsequent human-authorized push published the original 26-commit baseline through `ddc2e8a`; the final academic corrections are additional local commits.
 
 ## 20. Testing strategy and results
 
@@ -284,7 +298,7 @@ Coverage does not mean that every possible branch, browser, concurrent interleav
 
 ## 21. Implementation challenges
 
-GitHub access initially prevented authenticated development under the original brief. The connected account had read-only repository permission, and local credentials were inaccessible to the session. The human resolved the constraint by authorizing local commits only. The implementation therefore preserves the official remote and all genuine local history for a later human push.
+GitHub access initially prevented authenticated development under the original brief. The connected account had read-only repository permission, and local credentials were inaccessible to the session. The human resolved the constraint by authorizing local commits only. The implementation preserved the official remote and all genuine history. The project owner subsequently pushed the 26 original commits to the official main branch, ending at `ddc2e8a`. This correction pass preserves that published baseline and creates local commits for the owner's next push.
 
 Stock and payment consistency required transactional design. Ordinary read-then-write stock arithmetic could oversell under concurrency. Conditional updates and rollback avoid that problem. Payment completion required a second conditional claim and unique receipt/shipment records so retries do not duplicate business effects.
 
@@ -321,7 +335,7 @@ The implementation meets the academic functional acceptance target with 61 mappe
 1. Project owner (2026). TFPMDS master development brief and subsequent local-commit instructions. User-supplied assignment requirements and human guidance.
 2. FastAPI. [OAuth2 with Password and JWT tokens](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/). Consulted for authentication patterns.
 3. SQLAlchemy. [Session basics](https://docs.sqlalchemy.org/en/20/orm/session_basics.html) and [SQLite dialect/transaction considerations](https://docs.sqlalchemy.org/en/20/dialects/sqlite.html). Consulted for persistence and transaction design.
-4. Pydantic. [Models](https://pydantic.dev/docs/validation/latest/concepts/models/). Consulted for typed validation and serialization.
+4. Pydantic. [Models](https://docs.pydantic.dev/latest/concepts/models/). Consulted for typed validation and serialization.
 5. React. [Quick start](https://react.dev/learn). Consulted for components, state and event handling.
 6. Tailwind CSS. [Installing Tailwind with Vite](https://tailwindcss.com/docs/installation/using-vite). Consulted for local CSS integration.
 7. Object Management Group. [Unified Modeling Language 2.5.1](https://www.omg.org/spec/UML/2.5.1). Reference for UML interaction, state and structural notation.
@@ -333,11 +347,11 @@ Online references were checked on 18 November 2026. The project does not derive 
 
 The repository README contains exact Windows installation commands and the optional Playwright/document-generation steps. Start the backend on 127.0.0.1:8010 and the frontend on the Vite URL, normally 127.0.0.1:5173. Seed explicitly with `python -m app.seed --demo` from the backend directory. All five primary role accounts use `DemoPass123!` and the aliases farmer, buyer, admin, logistics and transporter at `tfpmds.demo`.
 
-Follow `DEMO_GUIDE.md` for the 14-step sequence and negative cases. The seed is repeatable without deleting work. The working SQLite database and development secrets are ignored by Git. The source schema/seed remain versioned. An optional synthetic SQLite snapshot in `demo/` preserves the observed completed browser journey using the final schema; it contains no JWT secret and excludes session revocations. The human can later authenticate as gloria-mbilinyi, inspect the local history, fetch the official remote and run `git push -u origin main`; no push was attempted during local development.
+Follow `DEMO_GUIDE.md` for the 14-step sequence and negative cases. The seed is repeatable without deleting work. The working SQLite database and development secrets are ignored by Git. The source schema/seed remain versioned. An optional synthetic SQLite snapshot in `demo/` preserves the observed completed browser journey using the final schema; it contains no JWT secret and excludes session revocations. The original 26 commits have already been pushed by the project owner. To publish the additional academic corrections, the owner can authenticate as gloria-mbilinyi, inspect the local history, fetch the official remote and run `git push -u origin main`. Codex has not pushed these corrections.
 
 ## 27. Appendices and traceability matrix
 
-Appendix A below is generated from the same acceptance mapping as `REQUIREMENTS_TRACEABILITY.md`. Each row identifies implementation, passing test evidence and the selected detailed UML model. All rows also map to the comprehensive sequence and communication diagrams. Long tables use landscape sheets in the PDF so source identifiers remain readable.
+Appendix A below is generated from the same acceptance mapping as `REQUIREMENTS_TRACEABILITY.md`. Each row identifies implementation, passing test evidence and the selected detailed UML model. All rows also map to the comprehensive sequence and communication diagrams. Long tables use A4 landscape pages with repeated headers so source identifiers remain readable. All report pages now use A4 dimensions. The three editable Word parts follow original PDF content boundaries of pages 1-10, 11-20 and 21-45; their new pagination differs because the body text and diagrams are larger.
 
 <!-- INCLUDE_TRACEABILITY -->
 

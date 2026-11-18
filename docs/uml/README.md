@@ -26,3 +26,11 @@ Regenerate from the repository root:
 Role classes such as Farmer and Transporter are explicitly labelled conceptual views of User, implemented by `User.role` rather than separate ORM subclasses/tables. The class diagrams show service operations on service classes; domain entities contain mapped attributes. Composition is limited to the actual ORM-owned OrderItem and TrackingEvent collections. PaymentReceipt is an associated record, not a cascading composition. Shipment assignment is an association; deleting or deactivating a transporter never owns/deletes a shipment.
 
 Asynchronous arrows express logical notification events. The local mock records them synchronously in the request transaction; no production message queue or external SMS service is running. Mock payment completion can enter through the authenticated callback or the buyer-owned simulation endpoint; terminal identical replays are idempotent. No diagram asserts a real mobile-money integration.
+
+## A4 publication views and editor verification
+
+The final sequence and communication files each contain 17 editable pages: the original comprehensive primary diagram plus 16 A4 process excerpts. These remain two assignment models; the extra pages are alternate publication views of the same 84 numbered messages. Every primary diagram is unchanged from published baseline ddc2e8a. State/package documents retain their original single primary page; the report supplies full overviews and overlapping enlarged detail sheets.
+
+Build the report after generating the primary diagrams: `scripts/build_proposal.py` adds the native A4 excerpt pages and prepares their raster publication views. `scripts/build_word_parts.py` uses the same catalogue and layout. Regenerating only the original interaction files resets their publication pages; rebuilding the proposal restores them.
+
+All eight primary sources opened as native shapes and connectors in the draw.io web editor during final academic review. Both corrected local interaction files were also opened, and an A4 page was selected in each. See `../evidence/uml-editor-verification.json` for the observed counts and source hashes. XML was generated programmatically as native draw.io content; no claim of manual mouse drawing or draw.io Desktop export is made.

@@ -1,0 +1,90 @@
+{
+  "method": "Observed native draw.io web editor shapes/connectors for all eight primary sources; additionally opened corrected local sequence and communication files and selected A4 excerpt pages.",
+  "models": [
+    {
+      "file": "sequence.drawio",
+      "primary_shapes": 179,
+      "primary_connectors": 104,
+      "editable_pages": 17,
+      "primary_unchanged_from_published_baseline": true,
+      "sha256": "83a8dfa8652bd1aa5f2cf704d88d8a79d53288f2241249aa0ae8f77cb2f050be",
+      "drawio_editor_open_check": "passed"
+    },
+    {
+      "file": "communication.drawio",
+      "primary_shapes": 128,
+      "primary_connectors": 44,
+      "editable_pages": 17,
+      "primary_unchanged_from_published_baseline": true,
+      "sha256": "ec9c1b9cbf9fdd47c14fe70898d986ea221542153ee3db3bfe12c79d37a3e68c",
+      "drawio_editor_open_check": "passed"
+    },
+    {
+      "file": "purchase-order-state.drawio",
+      "primary_shapes": 48,
+      "primary_connectors": 24,
+      "editable_pages": 1,
+      "primary_unchanged_from_published_baseline": true,
+      "sha256": "9d7b3a4cfa46ac945c93224cd71e93048fdb3dae1659f89e4cf500b3a8b12df9",
+      "drawio_editor_open_check": "passed"
+    },
+    {
+      "file": "shipment-state.drawio",
+      "primary_shapes": 37,
+      "primary_connectors": 22,
+      "editable_pages": 1,
+      "primary_unchanged_from_published_baseline": true,
+      "sha256": "e31783bf4419cfef01640ed803c0e5fe205aca8cf8e4fd9f9c7cf84517beb25f",
+      "drawio_editor_open_check": "passed"
+    },
+    {
+      "file": "package-overview.drawio",
+      "primary_shapes": 28,
+      "primary_connectors": 26,
+      "editable_pages": 1,
+      "primary_unchanged_from_published_baseline": true,
+      "sha256": "9067ca052c3326bd1640ff198c7228518fbf8cc6426b4c7240ee7fd8c8cacc8f",
+      "drawio_editor_open_check": "passed"
+    },
+    {
+      "file": "classes-identity-produce.drawio",
+      "primary_shapes": 41,
+      "primary_connectors": 10,
+      "editable_pages": 1,
+      "primary_unchanged_from_published_baseline": true,
+      "sha256": "09ea441cc0378f6394d171deb53b94f52cd128f810ef8611465cc506383bcb77",
+      "drawio_editor_open_check": "passed"
+    },
+    {
+      "file": "classes-orders-payments.drawio",
+      "primary_shapes": 33,
+      "primary_connectors": 7,
+      "editable_pages": 1,
+      "primary_unchanged_from_published_baseline": true,
+      "sha256": "e8ccfb4ee5672337c0194561734f2d003e03f89dd71b9248726d313b62844373",
+      "drawio_editor_open_check": "passed"
+    },
+    {
+      "file": "classes-logistics-notifications.drawio",
+      "primary_shapes": 38,
+      "primary_connectors": 9,
+      "editable_pages": 1,
+      "primary_unchanged_from_published_baseline": true,
+      "sha256": "f6ea18cc25a068f5ae62a7c2e16c03a175f0f1960eb5b086e309631cb6ee26bc",
+      "drawio_editor_open_check": "passed"
+    }
+  ],
+  "sequence_excerpt_observed": {
+    "page": "A4 process 1 excerpt 1",
+    "shapes": 19,
+    "connectors": 11
+  },
+  "communication_excerpt_observed": {
+    "page": "A4 process 3 excerpt 2",
+    "shapes": 14,
+    "connectors": 4
+  },
+  "all_84_messages_in_each_native_excerpt_set": true,
+  "remote_diagram_writes": 0,
+  "result": "passed"
+}

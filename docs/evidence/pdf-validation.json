@@ -1,8 +1,20 @@
 {
-  "pages": 45,
+  "pages": 103,
   "numbered_sections": 27,
   "outline_entries": 27,
-  "figure_pages": 18,
+  "figure_pages": 69,
+  "source_figures": 18,
+  "page_sizes_points": [
+    [
+      595.3,
+      841.9
+    ],
+    [
+      841.9,
+      595.3
+    ]
+  ],
+  "all_pages_A4": true,
   "functional_requirements_in_appendix": 61,
   "link_annotations": 62,
   "unexpected_blank_pages": [],

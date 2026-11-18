@@ -77,7 +77,7 @@ scripts/           verification, diagram, evidence and PDF tools
 
 `docs/uml/` has eight real editable draw.io XML models: one sequence, one matching communication, two state machines, one overview package and three detailed package/class diagrams. Each has a PNG export. The small bundled renderer draws the same source geometry; it is not an installed draw.io desktop exporter. After editing XML in diagrams.net, use its native exporter or update the generation scripts. See `docs/uml/README.md`.
 
-The editable academic report is `docs/TECHNICAL_PROPOSAL.md`; its PDF is `docs/TFPMDS_Technical_Proposal.pdf`. Large landscape figure sheets preserve notation legibility. Supporting documents include architecture, API reference/OpenAPI, SQL schema, traceability, demonstration guide and the agent development log.
+The editable academic report is `docs/TECHNICAL_PROPOSAL.md`; its complete A4 PDF is `docs/TFPMDS_Technical_Proposal.pdf`. Three native Word parts in `docs/submission/` preserve the original PDF boundaries of pages 1-10, 11-20 and 21-45. They contain 20, 37 and 47 Word pages respectively. The body uses 12-point Times New Roman and 1.5 spacing, with compact native tables and inline diagram images. All three were opened and saved in Microsoft Word with updated contents/page fields. State and package models have complete overviews and overlapping detail sheets. The sequence and communication sources each retain one comprehensive primary model and 16 editable A4 excerpt pages. Supporting documents include architecture, API reference/OpenAPI, SQL schema, traceability, demonstration guide, final academic verification and the agent development log.
 
 Rebuild documentation after rerunning verification:
 
@@ -87,7 +87,10 @@ Rebuild documentation after rerunning verification:
 .\.venv\Scripts\python.exe scripts\generate_structure_uml.py
 .\.venv\Scripts\python.exe scripts\build_evidence_docs.py
 .\.venv\Scripts\python.exe scripts\build_proposal.py
+.\.venv\Scripts\python.exe scripts\build_word_parts.py
 ```
+
+Word rendering requires Microsoft Word or LibreOffice. Update each part's table of contents after rebuilding. `scripts/render_word_review.py` can rasterize actual Word PDF exports with the packaged renderer when LibreOffice is unavailable; it does not substitute a source-text layout. `docs/FINAL_ACADEMIC_VERIFICATION.md` records the verified submitted versions and source coverage.
 
 ## Scope limits
 
@@ -95,7 +98,7 @@ Local academic prototype; no official Ministry endorsement or production deploym
 
 ## Local history and your later push
 
-The official remote is `https://github.com/gloria-mbilinyi/TFPMDS.git`. **Codex did not push**, add collaborators, change ownership, rewrite history or modify global author settings. The human confirmed the repository-local author `prettyglory <gloriambilinyi5@gmail.com>`.
+The official remote is `https://github.com/gloria-mbilinyi/TFPMDS.git`. **Codex did not push**, add collaborators, change ownership, rewrite history or modify global author settings. The human originally confirmed `prettyglory <gloriambilinyi5@gmail.com>`; the current repository-local name is `gloria-mbilinyi` with that same email, and it has been preserved. The owner subsequently pushed the original 26 commits through `ddc2e8a`. Only the later academic corrections await the owner's next push.
 
 When ready, execute these commands yourself from this repository:
 

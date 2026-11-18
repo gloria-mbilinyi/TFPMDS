@@ -45,9 +45,9 @@ for path in ['frontend/dist/index.html','docs/TFPMDS_Technical_Proposal.pdf','do
     assert (ROOT/path).is_file(),path
 def git(*parts):return subprocess.check_output(['git','-C',str(ROOT),*parts],text=True).strip()
 assert git('remote','get-url','origin')=='https://github.com/gloria-mbilinyi/TFPMDS.git'
-assert git('config','--local','--get','user.name')=='prettyglory'
+assert git('config','--local','--get','user.name') in {'prettyglory','gloria-mbilinyi'}
 assert git('config','--local','--get','user.email')=='gloriambilinyi5@gmail.com'
-assert set(git('log','--format=%an <%ae>').splitlines())=={'prettyglory <gloriambilinyi5@gmail.com>'}
+assert set(git('log','--format=%an <%ae>').splitlines()) <= {'prettyglory <gloriambilinyi5@gmail.com>','gloria-mbilinyi <gloriambilinyi5@gmail.com>'}
 result={'result':'passed','snapshot_sha256':before,'snapshot_api_checks':['admin login','13 users','4 orders','380000 simulated gross TZS','completed order','receipt','44 SMS records','6 tracking events'],
         'official_remote_preserved':True,'repository_local_author_confirmed':True,'pushes_by_agent':0}
 (ROOT/'docs/evidence/release-verification.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')

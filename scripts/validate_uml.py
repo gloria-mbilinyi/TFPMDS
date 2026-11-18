@@ -17,9 +17,12 @@ assert {p.stem for p in OUT.glob('*.drawio')}==expected
 documents={}
 for name in sorted(expected):
     root=ET.parse(OUT/(name+'.drawio')).getroot()
-    assert root.tag=='mxfile' and len(root.findall('diagram'))==1
-    cells=root.findall('.//mxCell');ids=[cell.get('id') for cell in cells]
-    assert len(ids)==len(set(ids)),f'Duplicate cell IDs in {name}'
+    pages=root.findall('diagram')
+    assert root.tag=='mxfile' and len(pages) in ({1,17} if name in {'sequence','communication'} else {1})
+    for page in pages:
+        page_ids=[c.get('id') for c in page.findall('.//mxCell')]
+        assert len(page_ids)==len(set(page_ids)),f'Duplicate cell IDs in {name}/{page.get("id")}'
+    cells=pages[0].findall('.//mxCell');ids=[cell.get('id') for cell in cells]
     assert any(cell.get('edge')=='1' for cell in cells)
     for cell in cells:
         for endpoint in ['source','target']:

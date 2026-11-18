@@ -1,0 +1,63 @@
+{
+  "original_pdf_pages": 45,
+  "source_blocks": 136,
+  "source_figures": 18,
+  "original_body_blocks_omitted": 0,
+  "original_body_blocks_duplicated": 0,
+  "corrected_paragraph_indices": [
+    4,
+    38,
+    45,
+    96,
+    105,
+    126,
+    128
+  ],
+  "all_A4": true,
+  "parts": [
+    {
+      "part": 1,
+      "original_pdf_pages": "1-10",
+      "word_pages": 20,
+      "editable_source_blocks": 42,
+      "native_tables": 3,
+      "image_panels": 11,
+      "bytes": 996945,
+      "sha256": "98937f8cb4f79f67ea8fbec96b5c0137686834324b3d6b863857c617099dedff",
+      "opened_in": "Microsoft Word desktop",
+      "toc_fields_updated": true,
+      "toc_page_references_verified": 10,
+      "result": "passed"
+    },
+    {
+      "part": 2,
+      "original_pdf_pages": "11-20",
+      "word_pages": 37,
+      "editable_source_blocks": 15,
+      "native_tables": 0,
+      "image_panels": 33,
+      "bytes": 3202834,
+      "sha256": "c5a75d1a7e62f26260a83b7cff6ab334ffab60c59102e899a12c08647fe60c4f",
+      "opened_in": "Microsoft Word desktop",
+      "toc_fields_updated": true,
+      "toc_page_references_verified": 2,
+      "result": "passed"
+    },
+    {
+      "part": 3,
+      "original_pdf_pages": "21-45",
+      "word_pages": 47,
+      "editable_source_blocks": 79,
+      "native_tables": 4,
+      "image_panels": 25,
+      "bytes": 3166701,
+      "sha256": "fc65ce085b7343bb3cd8b12123596d4a00c518c6f9ebb39c9d0f2c391afb5f3e",
+      "opened_in": "Microsoft Word desktop",
+      "toc_fields_updated": true,
+      "toc_page_references_verified": 15,
+      "result": "passed"
+    }
+  ],
+  "result": "passed",
+  "rendering": "Native Microsoft Word PDF exports rasterized with packaged render_docx.py rasterizer and bundled Poppler; LibreOffice unavailable."
+}

@@ -670,3 +670,43 @@ Agent work: closed the 25 verified implementation milestone hashes in LOCAL_COMM
 Checks: Git diff whitespace check, full Git object integrity check, all 25 previous commit objects and non-empty diffs verified. The final verification suite, portable-database API checks and 45-page PDF review passed as recorded above. Packaging will verify the bundle and ZIP without changing source.
 
 Completed functionality: all 61 local simulated functional requirements, 28 passing backend tests, 5 passing frontend tests, eight editable UML models, technical report/PDF, genuine browser evidence and the complete local history. Known limits remain documented; no production or real-provider result is claimed.
+
+## Academic correction implementation
+
+Date (UTC): 2026-11-18T19:38:37.271698+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Preserved the original PDF content boundaries in three native Word documents; added the DIT cover, corrected human-pushed GitHub baseline history, A4 publication views and 32 editable interaction excerpt pages. Retained all 136 source blocks, 27 sections, 61 requirements and eight canonical primary models.
+
+Technical decision: Keep the published 26-commit baseline intact and make only new local commits. Preserve the current associated local identity gloria-mbilinyi with the previously confirmed email; do not change settings or push. Use actual Word exports for visual QA because LibreOffice is unavailable.
+
+Checks actually executed: All three final files opened and were saved/exported in Microsoft Word: 20, 37 and 47 pages. Document validator passed: no omitted or duplicate body blocks, seven native tables, 27 correct contents page references. Complete PDF validator passed: 103 A4 pages, 69 figure pages, no orphaned figure captions. Eight sources opened in draw.io, including corrected local interaction excerpts; UML/catalogue checks and unchanged-primary comparison passed. Read-only release snapshot verification, Python compilation and git diff --check passed. Existing 28 backend plus five frontend results retained; no application behavior changed.
+
+Files changed at this milestone:
+
+```text
+M .gitignore
+ M README.md
+ M docs/TECHNICAL_PROPOSAL.md
+ M docs/TFPMDS_Technical_Proposal.pdf
+ M docs/evidence/pdf-validation.json
+ M docs/requirements-docs.txt
+ M docs/uml/README.md
+ M docs/uml/communication.drawio
+ M docs/uml/sequence.drawio
+ M scripts/build_proposal.py
+ M scripts/package_delivery.py
+ M scripts/record_milestone.py
+ M scripts/validate_proposal.py
+ M scripts/validate_release.py
+ M scripts/validate_uml.py
+?? docs/evidence/academic-verification.json
+?? docs/evidence/uml-editor-verification.json
+?? docs/submission/
+?? scripts/build_word_parts.py
+?? scripts/generate_readable_panels.py
+?? scripts/proposal_layout.py
+?? scripts/render_word_review.py
+?? scripts/validate_academic_delivery.py
+```

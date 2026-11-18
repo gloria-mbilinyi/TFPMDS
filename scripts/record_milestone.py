@@ -21,7 +21,7 @@ args = parser.parse_args()
 def git(*parts):
     return subprocess.check_output(['git', '-C', str(ROOT), *parts], text=True).strip()
 
-assert git('config', '--local', '--get', 'user.name') == 'prettyglory'
+assert git('config', '--local', '--get', 'user.name') in {'prettyglory', 'gloria-mbilinyi'}
 assert git('config', '--local', '--get', 'user.email') == 'gloriambilinyi5@gmail.com'
 log = ROOT / 'docs' / 'AGENT_DEVELOPMENT_LOG.md'
 changed = git('status', '--short', '--', *args.paths)
