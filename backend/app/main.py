@@ -31,3 +31,7 @@ def health():
     return {'status': 'ok', 'system': 'TFPMDS', 'payment_mode': 'simulation'}
 
 
+from .auth import router as auth_router
+app.include_router(auth_router)
+
+

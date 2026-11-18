@@ -84,3 +84,31 @@ M scripts/record_milestone.py
 ?? backend/tests/conftest.py
 ?? backend/tests/test_foundation.py
 ```
+
+Verified milestone commit: `043480a9febcce2e58cd1c298566b84521438025`.
+
+## Phase 4 - Authentication and roles
+
+Date (UTC): 2026-11-18T10:42:29.478753+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added Argon2 password hashing, restricted public roles, signed expiring JWTs, logout revocation, database role guards and registration notifications.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Backend foundation and authentication tests: 5 passed. Starlette emitted an upstream httpx deprecation warning.
+
+Files changed at this milestone:
+
+```text
+M backend/app/main.py
+?? backend/app/auth.py
+?? backend/app/integrations.py
+?? backend/app/notifications.py
+?? backend/app/schemas.py
+?? backend/app/security.py
+?? backend/requirements-lock.txt
+?? backend/tests/helpers.py
+?? backend/tests/test_auth.py
+```
