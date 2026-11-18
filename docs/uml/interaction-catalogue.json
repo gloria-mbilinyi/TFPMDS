@@ -1,0 +1,861 @@
+{
+  "participants": {
+    "farmer": "Farmer",
+    "buyer": "Buyer",
+    "admin": "Administrator",
+    "ui": "TFPMDS Interface",
+    "auth": "Authentication Service",
+    "farm": "Farmer Service",
+    "produce": "Produce Service",
+    "order": "Order Service",
+    "pay": "Payment Service",
+    "money": "Mobile Money Service",
+    "logistics": "Logistics Service",
+    "officer": "Logistics Officer",
+    "driver": "Transporter",
+    "sms": "SMS Notification Service",
+    "db": "Database"
+  },
+  "messages": [
+    {
+      "number": "1.1",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "farmer",
+      "target": "ui",
+      "label": "submit registration profile",
+      "kind": "call",
+      "index": 1
+    },
+    {
+      "number": "1.2",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "ui",
+      "target": "auth",
+      "label": "validate registration input",
+      "kind": "call",
+      "index": 2
+    },
+    {
+      "number": "1.3",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "auth",
+      "target": "farm",
+      "label": "prepare farmer and hash password",
+      "kind": "call",
+      "index": 3
+    },
+    {
+      "number": "1.4",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "farm",
+      "target": "db",
+      "label": "check unique email",
+      "kind": "call",
+      "index": 4
+    },
+    {
+      "number": "1.5",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "db",
+      "target": "farm",
+      "label": "email availability",
+      "kind": "return",
+      "index": 5
+    },
+    {
+      "number": "1.6",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "farm",
+      "target": "db",
+      "label": "[registration valid] store pending farmer",
+      "kind": "call",
+      "index": 6
+    },
+    {
+      "number": "1.7",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "farm",
+      "target": "sms",
+      "label": "log pending-registration SMS simulation",
+      "kind": "async",
+      "index": 7
+    },
+    {
+      "number": "1.8",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "farm",
+      "target": "ui",
+      "label": "pending account; approval required",
+      "kind": "return",
+      "index": 8
+    },
+    {
+      "number": "1.9",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "auth",
+      "target": "ui",
+      "label": "[registration invalid] validation error; no write",
+      "kind": "return",
+      "index": 9
+    },
+    {
+      "number": "1.10",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "admin",
+      "target": "ui",
+      "label": "review farm details and decision",
+      "kind": "call",
+      "index": 10
+    },
+    {
+      "number": "1.11",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "ui",
+      "target": "farm",
+      "label": "approve or reject registration",
+      "kind": "call",
+      "index": 11
+    },
+    {
+      "number": "1.12",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "farm",
+      "target": "db",
+      "label": "persist approval status and verification note",
+      "kind": "call",
+      "index": 12
+    },
+    {
+      "number": "1.13",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "farm",
+      "target": "sms",
+      "label": "log approval/rejection notification",
+      "kind": "async",
+      "index": 13
+    },
+    {
+      "number": "1.14",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "farmer",
+      "target": "ui",
+      "label": "sign in",
+      "kind": "call",
+      "index": 14
+    },
+    {
+      "number": "1.15",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "ui",
+      "target": "auth",
+      "label": "verify password and account",
+      "kind": "call",
+      "index": 15
+    },
+    {
+      "number": "1.16",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "auth",
+      "target": "db",
+      "label": "load active account; verify Argon2 hash",
+      "kind": "call",
+      "index": 16
+    },
+    {
+      "number": "1.17",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "auth",
+      "target": "ui",
+      "label": "signed expiring JWT and account status",
+      "kind": "return",
+      "index": 17
+    },
+    {
+      "number": "1.18",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "farmer",
+      "target": "ui",
+      "label": "[account approved] publish produce",
+      "kind": "call",
+      "index": 18
+    },
+    {
+      "number": "1.19",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "ui",
+      "target": "produce",
+      "label": "validate listing and farmer ownership",
+      "kind": "call",
+      "index": 19
+    },
+    {
+      "number": "1.20",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "produce",
+      "target": "db",
+      "label": "insert produce quantity, price and harvest date",
+      "kind": "call",
+      "index": 20
+    },
+    {
+      "number": "1.21",
+      "phase": 1,
+      "process": "Farmer registration",
+      "source": "produce",
+      "target": "ui",
+      "label": "listing available",
+      "kind": "return",
+      "index": 21
+    },
+    {
+      "number": "2.1",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "buyer",
+      "target": "ui",
+      "label": "search crop, region, price and quantity",
+      "kind": "call",
+      "index": 1
+    },
+    {
+      "number": "2.2",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "ui",
+      "target": "produce",
+      "label": "search approved farmer listings",
+      "kind": "call",
+      "index": 2
+    },
+    {
+      "number": "2.3",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "produce",
+      "target": "db",
+      "label": "query available produce",
+      "kind": "call",
+      "index": 3
+    },
+    {
+      "number": "2.4",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "db",
+      "target": "produce",
+      "label": "matching produce",
+      "kind": "return",
+      "index": 4
+    },
+    {
+      "number": "2.5",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "produce",
+      "target": "ui",
+      "label": "search results",
+      "kind": "return",
+      "index": 5
+    },
+    {
+      "number": "2.6",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "buyer",
+      "target": "ui",
+      "label": "submit order and idempotency key",
+      "kind": "call",
+      "index": 6
+    },
+    {
+      "number": "2.7",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "ui",
+      "target": "order",
+      "label": "[account approved] validate buyer and order",
+      "kind": "call",
+      "index": 7
+    },
+    {
+      "number": "2.8",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "order",
+      "target": "db",
+      "label": "[produce available] [quantity sufficient] reserve stock",
+      "kind": "call",
+      "index": 8
+    },
+    {
+      "number": "2.9",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "order",
+      "target": "db",
+      "label": "persist pending order/items in same transaction",
+      "kind": "call",
+      "index": 9
+    },
+    {
+      "number": "2.10",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "order",
+      "target": "sms",
+      "label": "notify farmer of order; log simulated SMS",
+      "kind": "async",
+      "index": 10
+    },
+    {
+      "number": "2.11",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "order",
+      "target": "ui",
+      "label": "pending farmer approval",
+      "kind": "return",
+      "index": 11
+    },
+    {
+      "number": "2.12",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "order",
+      "target": "ui",
+      "label": "[stock insufficient] rollback and return conflict",
+      "kind": "return",
+      "index": 12
+    },
+    {
+      "number": "2.13",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "farmer",
+      "target": "ui",
+      "label": "accept or reject order",
+      "kind": "call",
+      "index": 13
+    },
+    {
+      "number": "2.14",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "ui",
+      "target": "order",
+      "label": "validate responsible farmer and current state",
+      "kind": "call",
+      "index": 14
+    },
+    {
+      "number": "2.15",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "order",
+      "target": "db",
+      "label": "[farmer accepts] set accepted",
+      "kind": "call",
+      "index": 15
+    },
+    {
+      "number": "2.16",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "order",
+      "target": "db",
+      "label": "[farmer rejects] set rejected; release reserved stock",
+      "kind": "call",
+      "index": 16
+    },
+    {
+      "number": "2.17",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "order",
+      "target": "sms",
+      "label": "log buyer/farmer decision notifications",
+      "kind": "async",
+      "index": 17
+    },
+    {
+      "number": "2.18",
+      "phase": 2,
+      "process": "Produce ordering",
+      "source": "order",
+      "target": "ui",
+      "label": "order decision and updated history",
+      "kind": "return",
+      "index": 18
+    },
+    {
+      "number": "3.1",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "buyer",
+      "target": "ui",
+      "label": "start mobile money simulation",
+      "kind": "call",
+      "index": 1
+    },
+    {
+      "number": "3.2",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "ui",
+      "target": "pay",
+      "label": "initiate accepted order; idempotency key",
+      "kind": "call",
+      "index": 2
+    },
+    {
+      "number": "3.3",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "db",
+      "label": "accepted -> awaiting_payment; store attempt",
+      "kind": "call",
+      "index": 3
+    },
+    {
+      "number": "3.4",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "money",
+      "label": "initiate mock M-Pesa / Airtel / Tigo-Pesa",
+      "kind": "call",
+      "index": 4
+    },
+    {
+      "number": "3.5",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "money",
+      "target": "pay",
+      "label": "mock provider reference",
+      "kind": "return",
+      "index": 5
+    },
+    {
+      "number": "3.6",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "ui",
+      "label": "pending payment reference",
+      "kind": "return",
+      "index": 6
+    },
+    {
+      "number": "3.6.1",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "money",
+      "target": "pay",
+      "label": "[callback path] authenticated mock callback",
+      "kind": "async",
+      "index": 7
+    },
+    {
+      "number": "3.8",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "buyer",
+      "target": "ui",
+      "label": "[simulation path] choose local outcome",
+      "kind": "call",
+      "index": 8
+    },
+    {
+      "number": "3.9",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "ui",
+      "target": "pay",
+      "label": "apply simulated outcome as payment owner",
+      "kind": "call",
+      "index": 9
+    },
+    {
+      "number": "3.10",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "db",
+      "label": "compare pending outcome; reject conflicting replay",
+      "kind": "call",
+      "index": 10
+    },
+    {
+      "number": "3.11",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "db",
+      "label": "[payment successful] confirm payment and paid order",
+      "kind": "call",
+      "index": 11
+    },
+    {
+      "number": "3.12",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "db",
+      "label": "create unique receipt and pending shipment atomically",
+      "kind": "call",
+      "index": 12
+    },
+    {
+      "number": "3.13",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "sms",
+      "label": "log payment confirmation notifications",
+      "kind": "async",
+      "index": 13
+    },
+    {
+      "number": "3.14",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "ui",
+      "label": "successful payment and receipt link",
+      "kind": "return",
+      "index": 14
+    },
+    {
+      "number": "3.15",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "db",
+      "label": "[payment failed] payment_failed; no shipment",
+      "kind": "call",
+      "index": 15
+    },
+    {
+      "number": "3.16",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "ui",
+      "label": "failure; buyer may retry with a new attempt",
+      "kind": "return",
+      "index": 16
+    },
+    {
+      "number": "3.17",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "db",
+      "label": "[payment cancelled] accepted; no receipt/shipment",
+      "kind": "call",
+      "index": 17
+    },
+    {
+      "number": "3.18",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "buyer",
+      "target": "ui",
+      "label": "view receipt",
+      "kind": "call",
+      "index": 18
+    },
+    {
+      "number": "3.19",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "ui",
+      "target": "pay",
+      "label": "authorize and retrieve receipt",
+      "kind": "call",
+      "index": 19
+    },
+    {
+      "number": "3.20",
+      "phase": 3,
+      "process": "Payment processing",
+      "source": "pay",
+      "target": "ui",
+      "label": "simulated receipt and transaction reference",
+      "kind": "return",
+      "index": 20
+    },
+    {
+      "number": "4.1",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "officer",
+      "target": "ui",
+      "label": "open paid delivery requests",
+      "kind": "call",
+      "index": 1
+    },
+    {
+      "number": "4.2",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "ui",
+      "target": "logistics",
+      "label": "load authorized shipment dashboard",
+      "kind": "call",
+      "index": 2
+    },
+    {
+      "number": "4.3",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "logistics",
+      "target": "db",
+      "label": "query paid shipments and tracking",
+      "kind": "call",
+      "index": 3
+    },
+    {
+      "number": "4.4",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "db",
+      "target": "logistics",
+      "label": "pending arrangements",
+      "kind": "return",
+      "index": 4
+    },
+    {
+      "number": "4.5",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "officer",
+      "target": "ui",
+      "label": "select approved transporter",
+      "kind": "call",
+      "index": 5
+    },
+    {
+      "number": "4.6",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "ui",
+      "target": "logistics",
+      "label": "assign transporter",
+      "kind": "call",
+      "index": 6
+    },
+    {
+      "number": "4.7",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "logistics",
+      "target": "db",
+      "label": "[transporter assigned] persist assignment/event",
+      "kind": "call",
+      "index": 7
+    },
+    {
+      "number": "4.8",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "logistics",
+      "target": "sms",
+      "label": "notify transporter and trading parties",
+      "kind": "async",
+      "index": 8
+    },
+    {
+      "number": "4.9",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "driver",
+      "target": "ui",
+      "label": "record pickup / transit milestone",
+      "kind": "call",
+      "index": 9
+    },
+    {
+      "number": "4.10",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "ui",
+      "target": "logistics",
+      "label": "authorize assigned transporter; validate transition",
+      "kind": "call",
+      "index": 10
+    },
+    {
+      "number": "4.11",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "logistics",
+      "target": "db",
+      "label": "conditionally update shipment/order; append event",
+      "kind": "call",
+      "index": 11
+    },
+    {
+      "number": "4.12",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "logistics",
+      "target": "sms",
+      "label": "log delivery-status notifications",
+      "kind": "async",
+      "index": 12
+    },
+    {
+      "number": "4.13",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "buyer",
+      "target": "ui",
+      "label": "track shipment",
+      "kind": "call",
+      "index": 13
+    },
+    {
+      "number": "4.14",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "farmer",
+      "target": "ui",
+      "label": "track shipment",
+      "kind": "call",
+      "index": 14
+    },
+    {
+      "number": "4.15",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "ui",
+      "target": "logistics",
+      "label": "authorize party and read tracking history",
+      "kind": "call",
+      "index": 15
+    },
+    {
+      "number": "4.16",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "logistics",
+      "target": "db",
+      "label": "load chronological tracking events",
+      "kind": "call",
+      "index": 16
+    },
+    {
+      "number": "4.17",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "logistics",
+      "target": "ui",
+      "label": "current state and shared history",
+      "kind": "return",
+      "index": 17
+    },
+    {
+      "number": "4.18",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "driver",
+      "target": "ui",
+      "label": "confirm delivery at destination",
+      "kind": "call",
+      "index": 18
+    },
+    {
+      "number": "4.19",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "ui",
+      "target": "logistics",
+      "label": "[delivery confirmed] validate in_transit -> delivered",
+      "kind": "call",
+      "index": 19
+    },
+    {
+      "number": "4.20",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "logistics",
+      "target": "db",
+      "label": "persist delivered shipment/order and event",
+      "kind": "call",
+      "index": 20
+    },
+    {
+      "number": "4.21",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "logistics",
+      "target": "sms",
+      "label": "log delivery confirmation",
+      "kind": "async",
+      "index": 21
+    },
+    {
+      "number": "4.22",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "buyer",
+      "target": "ui",
+      "label": "confirm receipt of delivery",
+      "kind": "call",
+      "index": 22
+    },
+    {
+      "number": "4.23",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "ui",
+      "target": "order",
+      "label": "complete delivered order",
+      "kind": "call",
+      "index": 23
+    },
+    {
+      "number": "4.24",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "order",
+      "target": "db",
+      "label": "delivered -> completed",
+      "kind": "call",
+      "index": 24
+    },
+    {
+      "number": "4.25",
+      "phase": 4,
+      "process": "Delivery and shipment tracking",
+      "source": "order",
+      "target": "ui",
+      "label": "completed order history",
+      "kind": "return",
+      "index": 25
+    }
+  ]
+}

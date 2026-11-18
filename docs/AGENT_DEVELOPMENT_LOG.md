@@ -473,3 +473,32 @@ M backend/app/logistics.py
 ?? backend/tests/test_invariants.py
 ?? frontend/src/marketplace.test.tsx
 ```
+
+Verified milestone commit: `587e2c6192366ffc70955e8a1dcd08436f51d788`.
+
+## Phase 14a - Interaction UML
+
+Date (UTC): 2026-11-18T12:04:38.256457+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Authored genuine editable draw.io XML for one comprehensive sequence and one communication model, driven by 84 shared messages across 15 participants. Generated full PNGs and readable process panels.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: UML validator passed shared message/participant/guard checks; PNGs opened for visual review and fragment separators were adjusted for legibility.
+
+Files changed at this milestone:
+
+```text
+?? docs/requirements-docs.txt
+?? docs/uml/communication.drawio
+?? docs/uml/communication.png
+?? docs/uml/interaction-catalogue.json
+?? docs/uml/previews/
+?? docs/uml/sequence.drawio
+?? docs/uml/sequence.png
+?? scripts/generate_interaction_uml.py
+?? scripts/uml_canvas.py
+?? scripts/uml_interactions.py
+```
