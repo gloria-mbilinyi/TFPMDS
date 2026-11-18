@@ -658,3 +658,15 @@ M README.md
 ?? scripts/package_delivery.py
 ?? scripts/validate_release.py
 ```
+
+Verified milestone commit: `0bfd2c1c39aca88089b5d10e97199468394c3075`.
+
+## Closing evidence ledger
+
+Human guidance: commit all completed local work and retain meaningful contribution evidence without pushing.
+
+Agent work: closed the 25 verified implementation milestone hashes in LOCAL_COMMIT_HISTORY.md. This final documentation commit preserves the last milestone hash and leaves the source working tree clean. The delivery manifest records the closing commit hash externally, avoiding a self-reference.
+
+Checks: Git diff whitespace check, full Git object integrity check, all 25 previous commit objects and non-empty diffs verified. The final verification suite, portable-database API checks and 45-page PDF review passed as recorded above. Packaging will verify the bundle and ZIP without changing source.
+
+Completed functionality: all 61 local simulated functional requirements, 28 passing backend tests, 5 passing frontend tests, eight editable UML models, technical report/PDF, genuine browser evidence and the complete local history. Known limits remain documented; no production or real-provider result is claimed.
