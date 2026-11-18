@@ -354,3 +354,29 @@ M frontend/src/App.tsx
  M frontend/vite.config.ts
 ?? frontend/src/ProducePages.tsx
 ```
+
+Verified milestone commit: `03c8623d0268f8c4bc43b099bd91fd211ea684eb`.
+
+Correction to Phase 13c: the headless preview attempt failed to launch Microsoft Edge in the restricted shell (crashpad/named-pipe error). No landing screenshot was captured at that milestone. The build and two Vitest results were successful. Browser verification and genuine captures remain pending.
+
+
+## Phase 13d - Order and payment interface
+
+Date (UTC): 2026-11-18T11:00:05.770614+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Connected buyer/farmer order history and decisions, idempotent payment initiation, selectable simulation outcomes, retry handling and printable receipts.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: TypeScript and Vite production build passed. Backend payment/order tests remain green from their verified milestones; full frontend integration journey is pending. Corrected the previous log claim about the failed shell browser capture.
+
+Files changed at this milestone:
+
+```text
+M frontend/src/App.tsx
+ M frontend/src/ProducePages.tsx
+ M frontend/src/styles.css
+?? frontend/src/OrderPages.tsx
+```
