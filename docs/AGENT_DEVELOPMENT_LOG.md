@@ -404,3 +404,25 @@ M frontend/src/App.tsx
 ?? frontend/src/LogisticsPages.tsx
 ?? frontend/src/NotificationPage.tsx
 ```
+
+Verified milestone commit: `643bb087e1355e24c0c6cbec0a937a894dc16fb5`.
+
+## Phase 13f - Administrator interface
+
+Date (UTC): 2026-11-18T11:49:54.829700+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Implemented profile review and approvals, staff management, account activation, market reference editing, live report charts/CSV export and SMS log screens.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: TypeScript/Vite production build and 2 Vitest authentication interaction tests passed. Browser confirmed authenticated role workspace.
+
+Files changed at this milestone:
+
+```text
+M frontend/src/App.tsx
+ M frontend/src/styles.css
+?? frontend/src/AdminPages.tsx
+```
