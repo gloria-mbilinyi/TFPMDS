@@ -157,3 +157,25 @@ M backend/app/main.py
 ?? backend/app/views.py
 ?? backend/tests/test_produce.py
 ```
+
+Verified milestone commit: `e476c7ec373f1d949321a13d87799e0c16fa7a70`.
+
+## Phase 7 - Buyer marketplace and search
+
+Date (UTC): 2026-11-18T10:44:33.166995+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added public produce detail and marketplace filtering by crop, region, price, quantity and farmer. Unapproved or inactive sellers are hidden.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Marketplace integration test passed with combined filters, no-result cases, privacy projection and approval revocation.
+
+Files changed at this milestone:
+
+```text
+M backend/app/main.py
+?? backend/app/marketplace.py
+?? backend/tests/test_marketplace.py
+```

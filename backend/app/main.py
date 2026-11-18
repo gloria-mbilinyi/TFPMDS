@@ -37,5 +37,7 @@ from .users import router as users_router
 app.include_router(users_router)
 from .produce import router as produce_router
 app.include_router(produce_router)
+from .marketplace import router as marketplace_router
+app.include_router(marketplace_router)
 
 
