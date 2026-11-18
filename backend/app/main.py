@@ -35,5 +35,7 @@ from .auth import router as auth_router
 app.include_router(auth_router)
 from .users import router as users_router
 app.include_router(users_router)
+from .produce import router as produce_router
+app.include_router(produce_router)
 
 

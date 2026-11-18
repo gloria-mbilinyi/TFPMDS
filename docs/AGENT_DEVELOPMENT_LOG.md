@@ -134,3 +134,26 @@ M backend/app/main.py
 ?? backend/app/users.py
 ?? backend/tests/test_users.py
 ```
+
+Verified milestone commit: `602a4ddc1cf43a4048c677ef43a7155bf7fb5c01`.
+
+## Phase 6 - Produce management
+
+Date (UTC): 2026-11-18T10:43:39.443690+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added produce creation, edits, deactivation and owner listing history with validated quantities, prices and harvest dates.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Produce tests: 2 passed, covering owner authorization, pending accounts and invalid quantities/prices/dates.
+
+Files changed at this milestone:
+
+```text
+M backend/app/main.py
+?? backend/app/produce.py
+?? backend/app/views.py
+?? backend/tests/test_produce.py
+```
