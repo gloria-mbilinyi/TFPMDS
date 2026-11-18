@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="TFPMDS XML author" version="24.7.17">
+  <diagram id="classes-identity-produce" name="Identity and marketplace detailed packages">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2040" pageHeight="1420" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" value="TFPMDS | Identity and marketplace packages" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=29;fontColor=#285b43;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1950" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="Role projections are conceptual views of the single User model, not extra ORM tables or invented Python subclasses. Operations below belong to the named implemented services." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="45" y="75" width="1950" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="Authentication / Persistence" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#243b30;fillColor=none;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;shape=umlFrame;align=left;verticalAlign=top;labelPosition=inside;" vertex="1" parent="1">
+          <mxGeometry x="35" y="145" width="600" height="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="FarmerManagement / BuyerManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#243b30;fillColor=none;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;shape=umlFrame;align=left;verticalAlign=top;labelPosition=inside;" vertex="1" parent="1">
+          <mxGeometry x="665" y="145" width="620" height="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="ProduceManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#243b30;fillColor=none;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;shape=umlFrame;align=left;verticalAlign=top;labelPosition=inside;" vertex="1" parent="1">
+          <mxGeometry x="1315" y="145" width="690" height="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="class_User" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="105" y="215" width="440" height="377" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="User" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="105" y="215" width="440" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="+ id: int {PK}&#10;+ email: str {unique}&#10;+ password_hash: str&#10;+ role: Role&#10;+ status: ApprovalStatus&#10;+ active: bool&#10;+ name, phone, region: str&#10;+ location: str&#10;+ farm_size_acres: int&#10;+ crop_categories: str&#10;+ business_name: str&#10;+ verification_note: str" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="115" y="268" width="420" height="312" as="geometry" />
+        </mxCell>
+        <mxCell id="class_AuthenticationService" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="105" y="730" width="440" height="256" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" value="AuthenticationService" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="105" y="730" width="440" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" value="«module» auth.py / security.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="115" y="783" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#c7d2bd;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="105" y="814" as="sourcePoint" />
+            <mxPoint x="545" y="814" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c12" value="+ register(data)&#10;+ login(data)&#10;+ me(user)&#10;+ logout(user)&#10;+ authorize(user, roles)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="115" y="821" width="420" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="class_Farmer" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="765" y="215" width="420" height="143" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" value="Farmer" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="765" y="215" width="420" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" value="«role projection» role = farmer&#10;+ location, farm_size_acres&#10;+ crop_categories" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="775" y="268" width="400" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" value="role view" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="280" as="sourcePoint" />
+            <mxPoint x="765" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="class_Buyer" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="765" y="410" width="420" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" value="Buyer" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="765" y="410" width="420" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" value="«role projection» role = buyer&#10;+ business_name, location" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="775" y="463" width="400" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" value="role view" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="345" as="sourcePoint" />
+            <mxPoint x="765" y="465" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="class_Administrator" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="765" y="605" width="420" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="c19" value="Administrator" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="765" y="605" width="420" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" value="«role projection» role = administrator" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="775" y="658" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c21" value="role view" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="410" as="sourcePoint" />
+            <mxPoint x="765" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="class_LogisticsOfficer" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="765" y="800" width="420" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" value="LogisticsOfficer" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="765" y="800" width="420" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c23" value="«role projection» role = logistics" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="775" y="853" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c24" value="role view" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="475" as="sourcePoint" />
+            <mxPoint x="765" y="855" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="class_Transporter" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="765" y="995" width="420" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="c25" value="Transporter" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="765" y="995" width="420" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c26" value="«role projection» role = transporter" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="775" y="1048" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c27" value="role view" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="540" as="sourcePoint" />
+            <mxPoint x="765" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="class_Produce" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="215" width="470" height="247" as="geometry" />
+        </mxCell>
+        <mxCell id="c28" value="Produce" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="215" width="470" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c29" value="+ id: int {PK}&#10;+ farmer_id: int {FK User}&#10;+ name, crop, description: str&#10;+ available_kg: int &gt;= 0&#10;+ price_tzs: int &gt; 0&#10;+ harvest_date: date&#10;+ active: bool" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="268" width="450" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="class_ProduceService" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="560" width="470" height="256" as="geometry" />
+        </mxCell>
+        <mxCell id="c30" value="ProduceService" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="560" width="470" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c31" value="«module» produce.py / marketplace.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="613" width="450" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c32" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#c7d2bd;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1420" y="644" as="sourcePoint" />
+            <mxPoint x="1890" y="644" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c33" value="+ create(data, farmer)&#10;+ edit(id, data, owner)&#10;+ deactivate(id, owner)&#10;+ search(filters)&#10;+ detail(id)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="651" width="450" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="class_MarketPrice" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="935" width="470" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="c34" value="MarketPrice" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="935" width="470" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c35" value="+ id: int {PK}&#10;+ crop, region: str {unique pair}&#10;+ price_tzs: int &gt; 0&#10;+ observed_on: date&#10;+ source: str" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="988" width="450" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c36" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1185" y="286.5" as="sourcePoint" />
+            <mxPoint x="1420" y="338.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c37" value="1 farmer  —  0..* listings" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="365" width="225" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="c38" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1655" y="560" as="sourcePoint" />
+            <mxPoint x="1655" y="462" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c39" value="uses" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="490" width="175" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c40" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="325" y="730" as="sourcePoint" />
+            <mxPoint x="325" y="592" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c41" value="uses" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="345" y="665" width="175" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c42" value="Farmer/Buyer profiles are not public API projections. Marketplace responses expose only farmer name, region and farm location. Staff accounts cannot be publicly registered. Administrator approval and role guards load current database values on each request." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1310" width="1940" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

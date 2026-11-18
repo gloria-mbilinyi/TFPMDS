@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="TFPMDS XML author" version="24.7.17">
+  <diagram id="shipment-state" name="Shipment behavioral state machine">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2450" pageHeight="2150" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" value="TFPMDS | Shipment behavioral state machine" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=29;fontColor=#285b43;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="2360" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="State edges use the exact graph in backend/app/domain.py. Numbered transition specifications below provide the events, guards and actions for every edge." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="45" y="75" width="2360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="initial" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#285b43;strokeColor=#285b43;align=center;verticalAlign=middle;spacing=8;ellipse;" vertex="1" parent="1">
+          <mxGeometry x="55" y="311" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="initial" target="state_pending_arrangement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="75" y="321" as="sourcePoint" />
+            <mxPoint x="130" y="321" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5" value="T01" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_pending_arrangement" target="state_assignment_failed">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="245" y="362" as="sourcePoint" />
+            <mxPoint x="715" y="1070" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="245" y="488" />
+              <mxPoint x="715" y="488" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c6" value="T02" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_pending_arrangement" target="state_awaiting_transporter">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="321" as="sourcePoint" />
+            <mxPoint x="600" y="321" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c7" value="T03" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_awaiting_transporter" target="state_assignment_failed">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="715" y="362" as="sourcePoint" />
+            <mxPoint x="715" y="1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c8" value="T04" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_assignment_failed" target="state_awaiting_transporter">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="715" y="1070" as="sourcePoint" />
+            <mxPoint x="715" y="362" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c9" value="T05" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_assigned" target="state_assignment_failed">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1185" y="362" as="sourcePoint" />
+            <mxPoint x="715" y="1070" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1185" y="450" />
+              <mxPoint x="715" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c10" value="T06" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_assigned" target="state_ready_for_pickup">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1300" y="321" as="sourcePoint" />
+            <mxPoint x="1540" y="321" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c11" value="T07" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_ready_for_pickup" target="state_delivery_failed">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1655" y="362" as="sourcePoint" />
+            <mxPoint x="1185" y="1070" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1655" y="526" />
+              <mxPoint x="1185" y="526" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c12" value="T08" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_ready_for_pickup" target="state_picked_up">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1770" y="321" as="sourcePoint" />
+            <mxPoint x="2010" y="321" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c13" value="T09" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_picked_up" target="state_delivery_failed">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2125" y="362" as="sourcePoint" />
+            <mxPoint x="1185" y="1070" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="2125" y="602" />
+              <mxPoint x="1185" y="602" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c14" value="T10" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_picked_up" target="state_in_transit">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2125" y="362" as="sourcePoint" />
+            <mxPoint x="2125" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c15" value="T11" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_in_transit" target="state_delivered">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2010" y="721" as="sourcePoint" />
+            <mxPoint x="1770" y="721" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c16" value="T12" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_in_transit" target="state_delivery_failed">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2125" y="762" as="sourcePoint" />
+            <mxPoint x="1185" y="1070" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="2125" y="526" />
+              <mxPoint x="1185" y="526" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c17" value="T13" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_delivery_failed" target="state_ready_for_pickup">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1185" y="1152" as="sourcePoint" />
+            <mxPoint x="1655" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1185" y="564" />
+              <mxPoint x="1655" y="564" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c18" value="T14" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_delivery_failed" target="state_return_requested">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1300" y="1111" as="sourcePoint" />
+            <mxPoint x="1540" y="1111" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c19" value="T15" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_delivered" target="state_return_requested">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1655" y="762" as="sourcePoint" />
+            <mxPoint x="1655" y="1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c20" value="T16" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_return_requested" target="state_returned">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1770" y="1111" as="sourcePoint" />
+            <mxPoint x="2010" y="1111" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c21" value="T17" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_pending_arrangement" target="state_assigned">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="321" as="sourcePoint" />
+            <mxPoint x="1070" y="321" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c22" value="T18" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_awaiting_transporter" target="state_assigned">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="830" y="321" as="sourcePoint" />
+            <mxPoint x="1070" y="321" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c23" value="T19" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_assignment_failed" target="state_assigned">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="715" y="1152" as="sourcePoint" />
+            <mxPoint x="1185" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="715" y="602" />
+              <mxPoint x="1185" y="602" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c24" value="T20" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_assigned" target="state_assigned">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1255" y="280" as="sourcePoint" />
+            <mxPoint x="1115" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1255" y="185" />
+              <mxPoint x="1115" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="state_pending_arrangement" value="PendingArrangement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="130" y="280" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_awaiting_transporter" value="AwaitingTransporter" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="600" y="280" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_assigned" value="Assigned" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="280" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_ready_for_pickup" value="ReadyForPickup" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="280" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_picked_up" value="PickedUp" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="280" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_in_transit" value="InTransit" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="680" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_delivered" value="Delivered" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="680" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_assignment_failed" value="AssignmentFailed" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1070" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_delivery_failed" value="DeliveryFailed" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="1070" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_return_requested" value="ReturnRequested" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="1070" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="state_returned" value="Returned" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#edf4e8;strokeColor=#809b7d;align=center;verticalAlign=middle;spacing=8;fontStyle=1;rounded=1;arcSize=15;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="1070" width="230" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="final_returned" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=white;strokeColor=#285b43;align=center;verticalAlign=middle;spacing=8;ellipse;" vertex="1" parent="1">
+          <mxGeometry x="2333" y="1094" width="34" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="c25" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#285b43;strokeColor=#285b43;align=center;verticalAlign=middle;spacing=8;ellipse;" vertex="1" parent="1">
+          <mxGeometry x="2340" y="1101" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c26" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="state_returned" target="final_returned">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2240" y="1111" as="sourcePoint" />
+            <mxPoint x="2333" y="1111" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c27" value="Delivered is stable for normal operation. Its only outgoing edge is an explicit logistics return with a required reason. Returned is terminal. The local application creates a shipment only when a simulated payment is successful." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1200" width="2350" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c28" value="T01  pending_arrangement → assignment_failed&#10;record failure [logistics + reason] / append event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1310" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c29" value="T02  pending_arrangement → awaiting_transporter&#10;arrange [logistics] / await assignment" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1310" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c30" value="T03  awaiting_transporter → assignment_failed&#10;record failure [logistics + reason] / append event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1376" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c31" value="T04  assignment_failed → awaiting_transporter&#10;retry arrangement [logistics] / append event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1376" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c32" value="T05  assigned → assignment_failed&#10;record failure [logistics + reason] / clear driver" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1442" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c33" value="T06  assigned → ready_for_pickup&#10;prepare pickup [assigned driver or logistics] / append event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1442" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c34" value="T07  ready_for_pickup → delivery_failed&#10;report failure [authorized + reason] / append event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1508" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c35" value="T08  ready_for_pickup → picked_up&#10;confirm pickup [authorized, driver assigned] / append event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1508" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c36" value="T09  picked_up → delivery_failed&#10;report failure [authorized + reason] / append event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1574" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c37" value="T10  picked_up → in_transit&#10;depart [authorized] / order in_transit + event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1574" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c38" value="T11  in_transit → delivered&#10;confirm delivery [authorized] / order delivered + notify" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1640" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c39" value="T12  in_transit → delivery_failed&#10;report failure [authorized + reason] / append event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1640" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c40" value="T13  delivery_failed → ready_for_pickup&#10;recover [assigned driver or logistics] / order processing_delivery" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1706" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c41" value="T14  delivery_failed → return_requested&#10;request return [logistics + reason] / order return_requested" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1706" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c42" value="T15  delivered → return_requested&#10;request return [logistics + reason] / explicit exception" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1772" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c43" value="T16  return_requested → returned&#10;confirm return [authorized] / order returned + event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1772" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c44" value="T17  pending_arrangement → assigned&#10;assign [logistics, paid order, approved driver] / set driver; notify" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1838" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c45" value="T18  awaiting_transporter → assigned&#10;assign [logistics, paid order, approved driver] / set driver; notify" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=#f2f6ef;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1838" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c46" value="T19  assignment_failed → assigned&#10;assign [logistics, paid order, approved driver] / set driver; notify" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1904" width="1160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c47" value="T20  assigned → assigned&#10;reassign [logistics, paid order, approved driver] / change driver; notify" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#243b30;fillColor=white;strokeColor=white;align=left;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1245" y="1904" width="1160" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

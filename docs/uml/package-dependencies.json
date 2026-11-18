@@ -1,0 +1,48 @@
+{
+  "FarmerManagement": [
+    "Authentication",
+    "NotificationManagement",
+    "Persistence"
+  ],
+  "BuyerManagement": [
+    "Authentication",
+    "Persistence"
+  ],
+  "ProduceManagement": [
+    "Authentication",
+    "Persistence"
+  ],
+  "OrderManagement": [
+    "Authentication",
+    "NotificationManagement",
+    "Persistence"
+  ],
+  "PaymentManagement": [
+    "OrderManagement",
+    "ExternalIntegrations",
+    "NotificationManagement",
+    "Persistence"
+  ],
+  "LogisticsManagement": [
+    "OrderManagement",
+    "Authentication",
+    "NotificationManagement",
+    "Persistence"
+  ],
+  "Administration": [
+    "Authentication",
+    "NotificationManagement",
+    "Persistence"
+  ],
+  "Reporting": [
+    "Authentication",
+    "Persistence"
+  ],
+  "Authentication": [
+    "Persistence"
+  ],
+  "NotificationManagement": [
+    "ExternalIntegrations",
+    "Persistence"
+  ]
+}

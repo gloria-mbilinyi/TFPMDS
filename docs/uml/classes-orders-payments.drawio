@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="TFPMDS XML author" version="24.7.17">
+  <diagram id="classes-orders-payments" name="Ordering and payment detailed packages">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2130" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" value="TFPMDS | Orders and simulated payments" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=29;fontColor=#285b43;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="2040" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="Monetary totals use BIGINT integer TZS. Every order contains at least one line from one farmer. Relationships state the implemented cardinality and lifecycle ownership." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="45" y="75" width="2040" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="OrderManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#243b30;fillColor=none;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;shape=umlFrame;align=left;verticalAlign=top;labelPosition=inside;" vertex="1" parent="1">
+          <mxGeometry x="35" y="145" width="980" height="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="PaymentManagement / ExternalIntegrations" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#243b30;fillColor=none;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;shape=umlFrame;align=left;verticalAlign=top;labelPosition=inside;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="145" width="1045" height="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="class_PurchaseOrder" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="90" y="215" width="510" height="273" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="PurchaseOrder" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="215" width="510" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="+ id: int {PK}&#10;+ buyer_id, farmer_id: int {FK User}&#10;+ status: OrderState&#10;+ total_tzs: bigint &gt; 0&#10;+ delivery_address: str&#10;+ idempotency_key: str&#10;+ fingerprint: str&#10;{unique buyer_id, idempotency_key}" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="100" y="268" width="490" height="208" as="geometry" />
+        </mxCell>
+        <mxCell id="class_OrderItem" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="90" y="660" width="510" height="221" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="OrderItem" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="660" width="510" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" value="+ id: int {PK}&#10;+ order_id: int {FK PurchaseOrder}&#10;+ produce_id: int {FK Produce}&#10;+ quantity_kg: int &gt; 0&#10;+ unit_price_tzs: int &gt; 0&#10;+ produce_name: str {snapshot}" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="100" y="713" width="490" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="class_OrderService" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="650" y="215" width="310" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" value="OrderService" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="215" width="310" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" value="«module» orders.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="660" y="268" width="290" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#c7d2bd;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="299" as="sourcePoint" />
+            <mxPoint x="960" y="299" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c13" value="+ create(data, key, buyer, db)&#10;+ decide(id, decision, user, db)&#10;+ transition(db, expected, next)&#10;+ history(user)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="660" y="306" width="290" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="class_Payment" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="215" width="490" height="273" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" value="Payment" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="215" width="490" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" value="+ id: int {PK}&#10;+ order_id, buyer_id: int {FK}&#10;+ provider: ProviderName&#10;+ amount_tzs: bigint &gt; 0&#10;+ status: PaymentStatus&#10;+ reference: str {unique}&#10;+ idempotency_key: str&#10;{unique buyer_id, idempotency_key}" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="268" width="470" height="208" as="geometry" />
+        </mxCell>
+        <mxCell id="class_PaymentReceipt" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1660" y="680" width="380" height="221" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" value="PaymentReceipt" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1660" y="680" width="380" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" value="+ id: int {PK}&#10;+ payment_id: int {unique FK}&#10;+ order_id: int {unique FK}&#10;+ number: str {unique}&#10;+ amount_tzs: bigint&#10;+ created_at: datetime" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1670" y="733" width="360" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="class_PaymentService" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="680" width="490" height="256" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" value="PaymentService" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="680" width="490" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c19" value="«module» payments.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="733" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#c7d2bd;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="764" as="sourcePoint" />
+            <mxPoint x="1610" y="764" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c21" value="+ initiate(data, key, buyer, db)&#10;+ apply_outcome(db, payment, outcome)&#10;+ callback(data, secret)&#10;+ simulate(id, outcome, owner)&#10;+ receipt(id, party)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="771" width="470" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="class_MobileMoneyProvider" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1080" width="490" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" value="MobileMoneyProvider" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1080" width="490" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c23" value="«protocol» integrations.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="1133" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c24" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#c7d2bd;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="1164" as="sourcePoint" />
+            <mxPoint x="1610" y="1164" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c25" value="+ initiate(amount_tzs, phone, provider)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="1171" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c26" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;startArrow=diamond;startFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="345" y="488" as="sourcePoint" />
+            <mxPoint x="345" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c27" value="1  ◆ contains  1..*" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="360" y="570" width="255" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="c28" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="370" as="sourcePoint" />
+            <mxPoint x="1120" y="370" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="620" y="370" />
+              <mxPoint x="620" y="600" />
+              <mxPoint x="1080" y="600" />
+              <mxPoint x="1080" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c29" value="1 order — 0..* payment attempts" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="700" y="535" width="375" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c30" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1500" y="488" as="sourcePoint" />
+            <mxPoint x="1850" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c31" value="1 payment — 0..1 receipt" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1630" y="570" width="350" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="c32" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1365" y="936" as="sourcePoint" />
+            <mxPoint x="1365" y="1080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c33" value="depends on interface" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="1010" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="c34" value="Composition is used only for OrderItem ownership (ORM delete-orphan). A receipt is a unique associated record, not an invented cascading relationship. MockMobileMoney implements MobileMoneyProvider for mpesa, airtel_money and tigo_pesa; no real provider is called." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1300" width="2000" height="65" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

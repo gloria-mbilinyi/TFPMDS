@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="TFPMDS XML author" version="24.7.17">
+  <diagram id="package-overview" name="Architecture package overview">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2180" pageHeight="1370" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" value="TFPMDS | Package architecture" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=29;fontColor=#285b43;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="2090" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="Conceptual package ownership mapped to concrete Python modules. Dashed open-arrow dependencies form a directed acyclic graph; persistence does not import application modules." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="45" y="75" width="2090" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_FarmerManagement" target="package_Authentication">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="260" as="sourcePoint" />
+            <mxPoint x="1180" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_FarmerManagement" target="package_NotificationManagement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="260" as="sourcePoint" />
+            <mxPoint x="1180" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c6" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_FarmerManagement" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="260" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c7" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_BuyerManagement" target="package_Authentication">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="480" as="sourcePoint" />
+            <mxPoint x="1180" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c8" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_BuyerManagement" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="480" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c9" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_ProduceManagement" target="package_Authentication">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="700" as="sourcePoint" />
+            <mxPoint x="1180" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c10" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_ProduceManagement" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="700" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c11" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_OrderManagement" target="package_Authentication">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="920" as="sourcePoint" />
+            <mxPoint x="1180" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c12" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_OrderManagement" target="package_NotificationManagement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="920" as="sourcePoint" />
+            <mxPoint x="1180" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c13" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_OrderManagement" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="920" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c14" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_PaymentManagement" target="package_OrderManagement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="260" as="sourcePoint" />
+            <mxPoint x="70" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c15" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_PaymentManagement" target="package_ExternalIntegrations">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="260" as="sourcePoint" />
+            <mxPoint x="1770" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c16" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_PaymentManagement" target="package_NotificationManagement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="260" as="sourcePoint" />
+            <mxPoint x="1180" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c17" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_PaymentManagement" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="260" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c18" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_LogisticsManagement" target="package_OrderManagement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="480" as="sourcePoint" />
+            <mxPoint x="70" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c19" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_LogisticsManagement" target="package_Authentication">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="480" as="sourcePoint" />
+            <mxPoint x="1180" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c20" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_LogisticsManagement" target="package_NotificationManagement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="480" as="sourcePoint" />
+            <mxPoint x="1180" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c21" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_LogisticsManagement" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="480" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c22" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_Administration" target="package_Authentication">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="700" as="sourcePoint" />
+            <mxPoint x="1180" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c23" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_Administration" target="package_NotificationManagement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="700" as="sourcePoint" />
+            <mxPoint x="1180" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c24" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_Administration" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="700" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c25" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_Reporting" target="package_Authentication">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="920" as="sourcePoint" />
+            <mxPoint x="1180" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c26" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_Reporting" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="920" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c27" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_Authentication" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1490" y="310" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c28" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_NotificationManagement" target="package_ExternalIntegrations">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1490" y="730" as="sourcePoint" />
+            <mxPoint x="1770" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c29" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#afbbad;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1" source="package_NotificationManagement" target="package_Persistence">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1490" y="730" as="sourcePoint" />
+            <mxPoint x="1770" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="package_FarmerManagement" value="FarmerManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="70" y="180" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c30" value="users.py + auth.register" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="82" y="238" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_BuyerManagement" value="BuyerManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="70" y="400" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c31" value="users.py + marketplace.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="82" y="458" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_ProduceManagement" value="ProduceManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="70" y="620" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c32" value="produce.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="82" y="678" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_OrderManagement" value="OrderManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="70" y="840" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c33" value="orders.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="82" y="898" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_PaymentManagement" value="PaymentManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="590" y="180" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c34" value="payments.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="602" y="238" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_LogisticsManagement" value="LogisticsManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="590" y="400" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c35" value="logistics.py + domain.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="602" y="458" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_Administration" value="Administration" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="590" y="620" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c36" value="users.py admin routes" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="602" y="678" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_Reporting" value="Reporting" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="590" y="840" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c37" value="reporting.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="602" y="898" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_Authentication" value="Authentication" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="230" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c38" value="auth.py + security.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="1192" y="288" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_NotificationManagement" value="NotificationManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="650" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c39" value="notifications.py + notification_api.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="1192" y="708" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_Persistence" value="Persistence" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="1770" y="230" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c40" value="models.py + db.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="1782" y="288" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="package_ExternalIntegrations" value="ExternalIntegrations" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#f4f7ee;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=folder;tabWidth=140;tabHeight=30;" vertex="1" parent="1">
+          <mxGeometry x="1770" y="650" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c41" value="integrations.py protocols / mocks" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="1782" y="708" width="305" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c42" value="The React/TypeScript interface calls these application boundaries through REST. A package is a responsibility boundary, not necessarily a separate Python directory. All application dependencies point toward shared guards, persistence or provider ports." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1080" width="2030" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="c43" value="Infrastructure note: SQLite sessions enable foreign keys and rollback failures. Stock reservations use conditional UPDATE statements. PostgreSQL requires a driver, schema migrations, deployment configuration and integration testing before use; no PostgreSQL deployment is claimed." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1180" width="2030" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -502,3 +502,38 @@ Files changed at this milestone:
 ?? scripts/uml_canvas.py
 ?? scripts/uml_interactions.py
 ```
+
+Verified milestone commit: `3c1c8947c3fd7d3ca86f33a6642d9e4d5adbc928`.
+
+## Phase 14b - Behavioral and structural UML
+
+Date (UTC): 2026-11-18T12:04:39.375310+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added PurchaseOrder and Shipment state machines, one architecture overview and three detailed package/class models. Documented role projections, real ownership/multiplicities and logical asynchronous semantics.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Validator passed 8 editable XML files and PNGs, exact shipment graph, required order states, 84 matching messages and acyclic package dependencies. Reviewed a contact sheet and corrected overlapping relationship routes and terminal-state semantics.
+
+Files changed at this milestone:
+
+```text
+?? docs/uml/README.md
+?? docs/uml/classes-identity-produce.drawio
+?? docs/uml/classes-identity-produce.png
+?? docs/uml/classes-logistics-notifications.drawio
+?? docs/uml/classes-logistics-notifications.png
+?? docs/uml/classes-orders-payments.drawio
+?? docs/uml/classes-orders-payments.png
+?? docs/uml/package-dependencies.json
+?? docs/uml/package-overview.drawio
+?? docs/uml/package-overview.png
+?? docs/uml/purchase-order-state.drawio
+?? docs/uml/purchase-order-state.png
+?? docs/uml/shipment-state.drawio
+?? docs/uml/shipment-state.png
+?? scripts/generate_structure_uml.py
+?? scripts/validate_uml.py
+```

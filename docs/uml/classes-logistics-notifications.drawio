@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="TFPMDS XML author" version="24.7.17">
+  <diagram id="classes-logistics-notifications" name="Logistics and notification detailed packages">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2130" pageHeight="1430" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" value="TFPMDS | Logistics and notification packages" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=29;fontColor=#285b43;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="2040" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="Tracking is append-only through workflow services. Notifications persist in the same business transaction. The mock SMS port creates references and sends no real network messages." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="45" y="75" width="2040" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="LogisticsManagement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#243b30;fillColor=none;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;shape=umlFrame;align=left;verticalAlign=top;labelPosition=inside;" vertex="1" parent="1">
+          <mxGeometry x="35" y="145" width="1000" height="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="NotificationManagement / ExternalIntegrations" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#243b30;fillColor=none;strokeColor=#b8c7ba;align=center;verticalAlign=middle;spacing=8;shape=umlFrame;align=left;verticalAlign=top;labelPosition=inside;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="145" width="1025" height="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="class_Shipment" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="90" y="220" width="490" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="Shipment" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="220" width="490" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="+ id: int {PK}&#10;+ order_id: int {unique FK PurchaseOrder}&#10;+ transporter_id: int? {FK User}&#10;+ tracking_code: str {unique}&#10;+ status: ShipmentState" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="100" y="273" width="470" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="class_TrackingEvent" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="90" y="700" width="490" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="TrackingEvent" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="700" width="490" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" value="+ id: int {PK}&#10;+ shipment_id: int {FK Shipment}&#10;+ actor_id: int {FK User}&#10;+ status, location, note: str&#10;+ created_at: datetime" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="100" y="753" width="470" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="class_LogisticsService" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="640" y="220" width="330" height="256" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" value="LogisticsService" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="220" width="330" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" value="«module» logistics.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="650" y="273" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#c7d2bd;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="304" as="sourcePoint" />
+            <mxPoint x="970" y="304" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c13" value="+ list_shipments(user)&#10;+ assign(id, driver, staff)&#10;+ progress(id, state, actor)&#10;+ detail(id, party)&#10;+ log_event(db, shipment, actor)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="650" y="311" width="310" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="class_Transporter" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="640" y="750" width="330" height="169" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" value="Transporter" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="750" width="330" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" value="«User role view»&#10;+ id: int&#10;+ role = transporter&#10;+ active, status" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="650" y="803" width="310" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="class_Notification" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="220" width="490" height="247" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" value="Notification" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="220" width="490" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" value="+ id: int {PK}&#10;+ user_id: int {FK User}&#10;+ kind, message: str&#10;+ read: bool&#10;+ sms_status = simulated&#10;+ sms_reference: str&#10;+ created_at: datetime" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="273" width="470" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="class_NotificationService" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="700" width="490" height="282" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" value="NotificationService" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="700" width="490" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c19" value="«modules» notifications.py&#10;notification_api.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="753" width="470" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#c7d2bd;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1140" y="810" as="sourcePoint" />
+            <mxPoint x="1630" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c21" value="+ notify(db, user, kind, message)&#10;+ history(user, unread_only)&#10;+ mark_read(id, recipient)&#10;+ read_all(user)&#10;+ sms_log(administrator)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="817" width="470" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="class_SmsProvider" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="700" width="340" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" value="SmsProvider" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="700" width="340" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c23" value="«protocol» integrations.py" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1700" y="753" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c24" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#c7d2bd;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1690" y="784" as="sourcePoint" />
+            <mxPoint x="2030" y="784" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c25" value="+ send(phone, message): reference" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1700" y="791" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="class_MockSms" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#243b30;fillColor=#ffffff;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="1030" width="340" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="c26" value="MockSms" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#243b30;fillColor=#eaf2e3;strokeColor=#8fa58c;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="1030" width="340" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c27" value="+ sends_real_sms = false" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1700" y="1083" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c28" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#c7d2bd;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1690" y="1114" as="sourcePoint" />
+            <mxPoint x="2030" y="1114" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c29" value="+ send(phone, message)" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1700" y="1121" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="c30" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;startArrow=diamond;startFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="335" y="415" as="sourcePoint" />
+            <mxPoint x="335" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c31" value="1  ◆ contains  1..* events" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="355" y="530" width="310" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c32" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=none;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="390" as="sourcePoint" />
+            <mxPoint x="805" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c33" value="0..* shipments — 0..1 assigned driver" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="600" y="570" width="410" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="c34" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1385" y="700" as="sourcePoint" />
+            <mxPoint x="1385" y="467" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c35" value="persists history" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="610" width="250" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="c36" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1630" y="841.0" as="sourcePoint" />
+            <mxPoint x="1690" y="776.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c37" value="uses interface" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="600" width="430" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c38" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#285b43;strokeWidth=1.5;fontFamily=Arial;fontSize=14;fontColor=#243b30;endArrow=open;endFill=0;labelBackgroundColor=#ffffff;dashed=1;dashPattern=5 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1860" y="1030" as="sourcePoint" />
+            <mxPoint x="1860" y="852" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c39" value="implements" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#243b30;" vertex="1" parent="1">
+          <mxGeometry x="1880" y="940" width="175" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c40" value="Shipment: one PurchaseOrder maps to zero or one Shipment; a shipment has one order. Notification: one User has zero or more notifications, each notification has one recipient. Transporter and LogisticsOfficer are authorized User role views, not separate account tables." style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontColor=#68786d;" vertex="1" parent="1">
+          <mxGeometry x="65" y="1330" width="2000" height="65" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
