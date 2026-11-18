@@ -1,0 +1,34 @@
+# Agent-assisted development evidence
+
+The human supplied the TFPMDS master brief and later explicitly authorized local-only development. The second instruction supersedes the original stop-on-authentication and push instructions. The human declined collaborator access for `buriro-ezekia` and confirmed `prettyglory <gloriambilinyi5@gmail.com>` for commits. No global Git settings are changed, and no pushes are permitted.
+
+## Inspection and plan
+
+The repository was cloned from the public official URL and was empty, with no commits on `main`. Git, Python 3.14 and Node 24 were available. The connected GitHub account had read-only access; local credential retrieval was unavailable. This was reported accurately before the human authorized continuing locally. No contributor access or ownership was changed.
+
+The agent will implement the 17 phases in order, testing coherent components at milestone boundaries. Commit hashes are appended after each commit and preserved in the next commit. The closing ledger commit is identified by `git log`, avoiding a self-referential hash. Test results below are observations, never invented future outcomes.
+
+Work plan: setup; requirements/architecture; relational foundation; authentication; approvals/profiles; produce management; marketplace search; atomic ordering; simulated payments/receipts; shipment workflow; notifications; administration/reports; frontend integration; editable UML; regression testing; proposal/PDF; final demonstration.
+
+## Phase 1 - Repository setup
+
+Date (UTC): 2026-11-18T10:37:17.736074+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Created project layout, dependency specification, ignore rules and local milestone recorder. Confirmed repository-local author with the human.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Python compileall passed for scripts and app; repository-local author and official remote inspected.
+
+Files changed at this milestone:
+
+```text
+?? .gitattributes
+?? .gitignore
+?? README.md
+?? backend/
+?? docs/
+?? scripts/
+```
