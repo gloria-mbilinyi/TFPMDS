@@ -1,0 +1,307 @@
+[
+  {
+    "id": "A01",
+    "module": "Farmer registration",
+    "requirement": "Farmer account registration"
+  },
+  {
+    "id": "A02",
+    "module": "Farmer registration",
+    "requirement": "Farmer login and logout"
+  },
+  {
+    "id": "A03",
+    "module": "Farmer registration",
+    "requirement": "Farmer profile management"
+  },
+  {
+    "id": "A04",
+    "module": "Farmer registration",
+    "requirement": "Farm location and size"
+  },
+  {
+    "id": "A05",
+    "module": "Farmer registration",
+    "requirement": "Crop categories"
+  },
+  {
+    "id": "A06",
+    "module": "Farmer registration",
+    "requirement": "Administrator verification"
+  },
+  {
+    "id": "A07",
+    "module": "Farmer registration",
+    "requirement": "Registration approval and rejection"
+  },
+  {
+    "id": "A08",
+    "module": "Farmer registration",
+    "requirement": "Registration status notifications"
+  },
+  {
+    "id": "B01",
+    "module": "Produce management",
+    "requirement": "Add agricultural produce"
+  },
+  {
+    "id": "B02",
+    "module": "Produce management",
+    "requirement": "Edit produce information"
+  },
+  {
+    "id": "B03",
+    "module": "Produce management",
+    "requirement": "Delete or deactivate listings"
+  },
+  {
+    "id": "B04",
+    "module": "Produce management",
+    "requirement": "Specify available quantities"
+  },
+  {
+    "id": "B05",
+    "module": "Produce management",
+    "requirement": "Specify expected prices"
+  },
+  {
+    "id": "B06",
+    "module": "Produce management",
+    "requirement": "Specify harvest dates"
+  },
+  {
+    "id": "B07",
+    "module": "Produce management",
+    "requirement": "Display produce availability"
+  },
+  {
+    "id": "B08",
+    "module": "Produce management",
+    "requirement": "Prevent invalid quantities and prices"
+  },
+  {
+    "id": "C01",
+    "module": "Buyer management",
+    "requirement": "Buyer registration"
+  },
+  {
+    "id": "C02",
+    "module": "Buyer management",
+    "requirement": "Buyer account approval"
+  },
+  {
+    "id": "C03",
+    "module": "Buyer management",
+    "requirement": "Buyer login"
+  },
+  {
+    "id": "C04",
+    "module": "Buyer management",
+    "requirement": "Buyer profile"
+  },
+  {
+    "id": "C05",
+    "module": "Buyer management",
+    "requirement": "Search agricultural produce"
+  },
+  {
+    "id": "C06",
+    "module": "Buyer management",
+    "requirement": "Filter by crop, region, price and quantity"
+  },
+  {
+    "id": "C07",
+    "module": "Buyer management",
+    "requirement": "View farmer listings"
+  },
+  {
+    "id": "D01",
+    "module": "Produce ordering",
+    "requirement": "Buyer purchase order creation"
+  },
+  {
+    "id": "D02",
+    "module": "Produce ordering",
+    "requirement": "Order validation"
+  },
+  {
+    "id": "D03",
+    "module": "Produce ordering",
+    "requirement": "Farmer order notification"
+  },
+  {
+    "id": "D04",
+    "module": "Produce ordering",
+    "requirement": "Farmer acceptance or rejection"
+  },
+  {
+    "id": "D05",
+    "module": "Produce ordering",
+    "requirement": "Order status management"
+  },
+  {
+    "id": "D06",
+    "module": "Produce ordering",
+    "requirement": "Order history"
+  },
+  {
+    "id": "D07",
+    "module": "Produce ordering",
+    "requirement": "Quantity reservation and stock consistency"
+  },
+  {
+    "id": "E01",
+    "module": "Payment processing",
+    "requirement": "Mobile money payment initiation"
+  },
+  {
+    "id": "E02",
+    "module": "Payment processing",
+    "requirement": "M-Pesa simulation"
+  },
+  {
+    "id": "E03",
+    "module": "Payment processing",
+    "requirement": "Airtel Money simulation"
+  },
+  {
+    "id": "E04",
+    "module": "Payment processing",
+    "requirement": "Tigo-Pesa simulation"
+  },
+  {
+    "id": "E05",
+    "module": "Payment processing",
+    "requirement": "Payment status verification"
+  },
+  {
+    "id": "E06",
+    "module": "Payment processing",
+    "requirement": "Transaction records"
+  },
+  {
+    "id": "E07",
+    "module": "Payment processing",
+    "requirement": "Payment receipts"
+  },
+  {
+    "id": "E08",
+    "module": "Payment processing",
+    "requirement": "Failed and cancelled payment handling"
+  },
+  {
+    "id": "E09",
+    "module": "Payment processing",
+    "requirement": "Duplicate payment prevention"
+  },
+  {
+    "id": "F01",
+    "module": "Logistics and delivery",
+    "requirement": "Logistics officer dashboard"
+  },
+  {
+    "id": "F02",
+    "module": "Logistics and delivery",
+    "requirement": "Delivery request after confirmed payment"
+  },
+  {
+    "id": "F03",
+    "module": "Logistics and delivery",
+    "requirement": "Transporter assignment"
+  },
+  {
+    "id": "F04",
+    "module": "Logistics and delivery",
+    "requirement": "Transporter dashboard"
+  },
+  {
+    "id": "F05",
+    "module": "Logistics and delivery",
+    "requirement": "Shipment status updates"
+  },
+  {
+    "id": "F06",
+    "module": "Logistics and delivery",
+    "requirement": "Shipment tracking history"
+  },
+  {
+    "id": "F07",
+    "module": "Logistics and delivery",
+    "requirement": "Delivery confirmation"
+  },
+  {
+    "id": "F08",
+    "module": "Logistics and delivery",
+    "requirement": "Farmer and buyer shipment tracking"
+  },
+  {
+    "id": "G01",
+    "module": "Administration",
+    "requirement": "Administrator dashboard"
+  },
+  {
+    "id": "G02",
+    "module": "Administration",
+    "requirement": "Farmer verification"
+  },
+  {
+    "id": "G03",
+    "module": "Administration",
+    "requirement": "Buyer approval"
+  },
+  {
+    "id": "G04",
+    "module": "Administration",
+    "requirement": "User management"
+  },
+  {
+    "id": "G05",
+    "module": "Administration",
+    "requirement": "Transaction monitoring"
+  },
+  {
+    "id": "G06",
+    "module": "Administration",
+    "requirement": "Sales reporting"
+  },
+  {
+    "id": "G07",
+    "module": "Administration",
+    "requirement": "Market price management"
+  },
+  {
+    "id": "G08",
+    "module": "Administration",
+    "requirement": "Basic system analytics"
+  },
+  {
+    "id": "H01",
+    "module": "Notifications",
+    "requirement": "SMS notification simulation"
+  },
+  {
+    "id": "H02",
+    "module": "Notifications",
+    "requirement": "In-app notifications"
+  },
+  {
+    "id": "H03",
+    "module": "Notifications",
+    "requirement": "Order notifications"
+  },
+  {
+    "id": "H04",
+    "module": "Notifications",
+    "requirement": "Payment confirmation notifications"
+  },
+  {
+    "id": "H05",
+    "module": "Notifications",
+    "requirement": "Delivery status notifications"
+  },
+  {
+    "id": "H06",
+    "module": "Notifications",
+    "requirement": "Notification history"
+  }
+]

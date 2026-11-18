@@ -6,6 +6,7 @@ __pycache__/
 *.db-shm
 *.db-wal
 .env
+.development-secrets
 node_modules/
 dist/
 coverage/

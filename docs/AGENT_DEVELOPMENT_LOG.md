@@ -32,3 +32,28 @@ Files changed at this milestone:
 ?? docs/
 ?? scripts/
 ```
+
+Verified milestone commit: `0d2d9d28d85f1bcb3cd8289bc4ca2bdeb42406e7`.
+
+## Phase 2 - Requirements and architecture
+
+Date (UTC): 2026-11-18T10:37:47.548476+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Documented actor permissions, atomic stock and payment rules, dependency direction and project limitations. Froze individual functional requirements from the master brief.
+
+Technical decision: Use integer kilograms and TZS, multi-item single-farmer orders, durable mock notifications, and explicit shipment state graphs.
+
+Checks actually executed: Requirement catalogue generated with unique module-number identifiers; Python compileall passed.
+
+Files changed at this milestone:
+
+```text
+M .gitignore
+ M docs/AGENT_DEVELOPMENT_LOG.md
+?? backend/app/config.py
+?? docs/ARCHITECTURE.md
+?? docs/requirements.json
+?? scripts/requirements_catalogue.py
+```
