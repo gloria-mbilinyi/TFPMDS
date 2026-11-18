@@ -223,3 +223,25 @@ M backend/app/main.py
 ?? backend/app/payments.py
 ?? backend/tests/test_payments.py
 ```
+
+Verified milestone commit: `316bfcacade6a93fd8395c8f32c1e439c652dc92`.
+
+## Phase 10 - Logistics and tracking
+
+Date (UTC): 2026-11-18T10:47:35.152210+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added paid-shipment arrangements, authorized transporter assignment, role-scoped dashboards, tracking history, delivery confirmation and explicit return exceptions.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Logistics integration test passed through assignment, pickup, transit, delivery, buyer completion and authorized return. A draft patch targeted an already-present schema value; it was corrected before application and testing.
+
+Files changed at this milestone:
+
+```text
+M backend/app/main.py
+?? backend/app/logistics.py
+?? backend/tests/test_logistics.py
+```
