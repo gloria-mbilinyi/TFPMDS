@@ -245,3 +245,25 @@ M backend/app/main.py
 ?? backend/app/logistics.py
 ?? backend/tests/test_logistics.py
 ```
+
+Verified milestone commit: `f0a347fe60af68bf919a6e2b49c5ee091d24bab9`.
+
+## Phase 11 - Notifications
+
+Date (UTC): 2026-11-18T10:48:07.099491+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added notification history, unread filtering, recipient-only read actions and administrator SMS simulation log. Business workflows already persist notifications transactionally.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Notification integration test passed for payment/order history, simulated references, read actions and recipient/admin authorization.
+
+Files changed at this milestone:
+
+```text
+M backend/app/main.py
+?? backend/app/notification_api.py
+?? backend/tests/test_notifications.py
+```

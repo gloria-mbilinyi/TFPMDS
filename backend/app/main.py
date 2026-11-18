@@ -45,5 +45,7 @@ from .payments import router as payments_router
 app.include_router(payments_router)
 from .logistics import router as logistics_router
 app.include_router(logistics_router)
+from .notification_api import router as notification_router
+app.include_router(notification_router)
 
 
