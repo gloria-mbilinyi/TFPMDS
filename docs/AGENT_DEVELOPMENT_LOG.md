@@ -201,3 +201,25 @@ M backend/app/main.py
 ?? backend/app/orders.py
 ?? backend/tests/test_orders.py
 ```
+
+Verified milestone commit: `f2a06a1091fcaa7f1061d4df99ac30849338b076`.
+
+## Phase 9 - Payments and receipts
+
+Date (UTC): 2026-11-18T10:46:22.081884+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Implemented three mock providers, payment initiation/status, authenticated idempotent callbacks, failure/cancellation/retry handling, receipts and payment-triggered delivery requests.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Payment integration tests: 5 passed across M-Pesa, Airtel Money, Tigo-Pesa, failure and cancellation; duplicate callbacks created exactly one receipt and shipment.
+
+Files changed at this milestone:
+
+```text
+M backend/app/main.py
+?? backend/app/payments.py
+?? backend/tests/test_payments.py
+```

@@ -41,5 +41,7 @@ from .marketplace import router as marketplace_router
 app.include_router(marketplace_router)
 from .orders import router as orders_router
 app.include_router(orders_router)
+from .payments import router as payments_router
+app.include_router(payments_router)
 
 
