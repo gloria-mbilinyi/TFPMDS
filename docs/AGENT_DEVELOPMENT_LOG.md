@@ -179,3 +179,25 @@ M backend/app/main.py
 ?? backend/app/marketplace.py
 ?? backend/tests/test_marketplace.py
 ```
+
+Verified milestone commit: `188e4702c90b3dd4fb6af6da001fc6adba0382ac`.
+
+## Phase 8 - Orders and stock reservations
+
+Date (UTC): 2026-11-18T10:45:25.685560+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Implemented multi-item single-farmer orders, conditional inventory reservation, idempotent submissions, order history and authorized acceptance/rejection/cancellation. Rejected/cancelled orders release stock once.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Order integration tests: 2 passed, including duplicate submissions, overselling prevention, authorization and reservation release.
+
+Files changed at this milestone:
+
+```text
+M backend/app/main.py
+?? backend/app/orders.py
+?? backend/tests/test_orders.py
+```
