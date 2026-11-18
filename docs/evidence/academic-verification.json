@@ -1,5 +1,11 @@
 {
   "original_pdf_pages": 45,
+  "original_pdf_sha256": "aa6c72d2d97032725694387eae64db94198c9fca7ecd551f2e7478d5284f33dc",
+  "original_pdf_split_boundaries_verified": [
+    11,
+    21
+  ],
+  "published_baseline": "ddc2e8aacc48ece0dfad27b19e5f26317f56cd58",
   "source_blocks": 136,
   "source_figures": 18,
   "original_body_blocks_omitted": 0,

@@ -710,3 +710,19 @@ M .gitignore
 ?? scripts/render_word_review.py
 ?? scripts/validate_academic_delivery.py
 ```
+
+Verified milestone commit: `125617398614c10f342260b779c6bf2db34143a6`.
+
+## Final academic verification and submission handoff
+
+Human guidance: final academic corrections, three independently editable Word documents, exact original PDF content boundaries, updated human-pushed GitHub history, editable draw.io sources, local commits only.
+
+Agent work: completed the final verification report and commit ledger; checked original PDF pages 11 and 21 directly from baseline Git bytes; verified all 136 source blocks occur once across the three Word parts. All seven tables are native Word tables. Word opened, updated, saved and exported every final document. Counts are 20, 37 and 47 pages; the complete PDF has 103 A4 pages. All 27 Word contents entries point to the correct native export pages. All eight primary draw.io models opened; corrected local sequence/communication files also exposed their editable A4 excerpt pages. Primary diagram geometry is unchanged and each native excerpt set retains the 84 exact message numbers.
+
+Attempts and corrections: a default Word template contributed themed fonts and a title border, which were removed. An early PDF figure caption spill was corrected using measured available space and keeping each figure group together. LibreOffice was unavailable and Office COM access was denied; final render verification used supported Microsoft Word UI exports and the packaged PNG rasterizer. An early local preview link was attempted before the helper was ready; loopback socket access was subsequently blocked, and a specific network permission grant plus a new local helper resolved the check. No security settings were changed. No failed attempt was reported as a successful verification.
+
+Checks actually executed: document coverage/OOXML validation, original PDF boundary checks, Word contents/page reference checks, PDF A4/outline/figure validation, eight-model UML/PNG/catalogue/domain checks, read-only release snapshot API verification, Python compilation and Git whitespace checks. All page contact sheets and selected full page images were reviewed. The prior 28 backend and five frontend passing results remain historical implementation evidence; this documentation pass does not invent a new application test run.
+
+Git evidence: implementation commit `125617398614c10f342260b779c6bf2db34143a6`. The original owner-published baseline contains 26 commits ending at `ddc2e8aacc48ece0dfad27b19e5f26317f56cd58`. The current local author name is `gloria-mbilinyi`, with the previously confirmed `gloriambilinyi5@gmail.com`; these associated local settings were checked and preserved. No push, collaborator change, ownership change, history rewrite or global Git setting change was performed.
+
+This closing verification commit contains the completed report and preceding actual commit hashes. Its own hash is recoverable from Git and the final delivery manifest. The only remaining submission entries are the four explicit academic cover placeholders.

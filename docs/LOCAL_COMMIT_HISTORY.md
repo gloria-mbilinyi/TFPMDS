@@ -1,6 +1,6 @@
 # Local development commit ledger
 
-The 25 implementation/verification milestones below are genuine non-empty commits. Each preserves the confirmed local author identity and conventional message. Detailed file changes, tests, decisions and corrections are in AGENT_DEVELOPMENT_LOG.md. No push was performed.
+The 27 commits below are genuine non-empty milestones, including the original 26-commit baseline published by the owner and the local academic correction implementation. Detailed decisions and checks are recorded in AGENT_DEVELOPMENT_LOG.md. Codex has not pushed commits.
 
 | Milestone | Full commit hash | Implemented functionality |
 | --- | --- | --- |
@@ -29,7 +29,9 @@ The 25 implementation/verification milestones below are genuine non-empty commit
 | 23 | f5e5f9fa10ef67dc40e777ef77c11e8459012734 | docs: publish acceptance traceability API schema and demo guide |
 | 24 | 426afb3a72b101de451165a3046a0fbe06e66eb5 | docs: finalize technical proposal PDF and editable academic report |
 | 25 | 0bfd2c1c39aca88089b5d10e97199468394c3075 | chore: preserve verified demo database and local release tooling |
+| 26 | ddc2e8aacc48ece0dfad27b19e5f26317f56cd58 | docs: close verified local development and commit ledger |
+| 27 | 125617398614c10f342260b779c6bf2db34143a6 | docs: correct academic report and add editable Word parts |
 
-The closing documentation commit containing this ledger is the 26th commit. Its own hash cannot be embedded inside itself. Retrieve it with `git rev-parse HEAD`; the generated delivery manifest lists all 26 hashes, including this closing commit.
+The closing academic verification commit containing this updated ledger follows these 27 entries. Its own hash is recorded by the generated delivery manifest and `git rev-parse HEAD`; it cannot be embedded inside itself. All prior history remains intact.
 
-Official remote: https://github.com/gloria-mbilinyi/TFPMDS.git. Branch: main. No history was rewritten. All commit hashes refer to actual repository objects.
+Official remote: https://github.com/gloria-mbilinyi/TFPMDS.git. Branch: main.

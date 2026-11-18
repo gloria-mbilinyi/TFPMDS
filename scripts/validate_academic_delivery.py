@@ -1,5 +1,6 @@
 """Validate source coverage, editable OOXML and native Word review exports."""
 import hashlib
+from io import BytesIO
 import json
 from pathlib import Path
 import re
@@ -16,6 +17,11 @@ W='{'+N['w']+'}'
 def normalized(text):return re.sub(r'\s+','',text).replace('\u200b','')
 def wt(node):return ''.join(t.text or '' for t in node.findall('.//w:t',N))
 records=json.loads((WORK/'content.json').read_text(encoding='utf-8'))
+original_pdf=subprocess.check_output(['git','show','ddc2e8a:docs/TFPMDS_Technical_Proposal.pdf'],cwd=ROOT)
+baseline_pdf=PdfReader(BytesIO(original_pdf))
+assert len(baseline_pdf.pages)==45
+assert normalized('Sequence model, process 4: Delivery and tracking') in normalized(baseline_pdf.pages[10].extract_text())
+assert normalized('13. Overview package diagram') in normalized(baseline_pdf.pages[20].extract_text())
 original=subprocess.check_output(['git','show','ddc2e8a:docs/TECHNICAL_PROPOSAL.md'],cwd=ROOT).decode()
 original=original[original.index('## 1. Executive summary'):]
 matrix=(DOCS/'REQUIREMENTS_TRACEABILITY.md').read_text(encoding='utf-8').split('\n',2)[2]
@@ -99,7 +105,9 @@ for part in [1,2,3]:
 assert sorted(all_ids)==list(range(len(records))) and len(set(all_ids))==len(records)
 assert headings==[r['text'] for r in records if r['tag']=='h2']
 assert len(headings)==27
-result={'original_pdf_pages':45,'source_blocks':len(records),'source_figures':18,'original_body_blocks_omitted':0,
+result={'original_pdf_pages':len(baseline_pdf.pages),'original_pdf_sha256':hashlib.sha256(original_pdf).hexdigest(),
+        'original_pdf_split_boundaries_verified':[11,21],'published_baseline':'ddc2e8aacc48ece0dfad27b19e5f26317f56cd58',
+        'source_blocks':len(records),'source_figures':18,'original_body_blocks_omitted':0,
         'original_body_blocks_duplicated':0,'corrected_paragraph_indices':changes,'all_A4':True,
         'parts':summary,'result':'passed','rendering':'Native Microsoft Word PDF exports rasterized with packaged render_docx.py rasterizer and bundled Poppler; LibreOffice unavailable.'}
 (DOCS/'evidence/academic-verification.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
