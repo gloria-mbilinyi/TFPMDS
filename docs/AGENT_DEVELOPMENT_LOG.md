@@ -310,3 +310,24 @@ Files changed at this milestone:
 ?? backend/app/seed.py
 ?? backend/tests/test_seed.py
 ```
+
+Verified milestone commit: `64ae830ba1dae1ea0b6db9b83af93793f540ec72`.
+
+## Phase 13b - Frontend foundation
+
+Date (UTC): 2026-11-18T10:55:40.315977+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Built React/TypeScript/Tailwind shell, responsive landing and dashboards, registration/login/profile forms, marketplace filters and illustrated produce cards against real APIs.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Vite production build passed after correcting a missing icon and metric prop names. Vitest: 2 passed after enabling test globals. Local seed CLI initially ran from the wrong directory; rerunning from backend succeeded.
+
+Files changed at this milestone:
+
+```text
+M .gitignore
+?? frontend/
+```

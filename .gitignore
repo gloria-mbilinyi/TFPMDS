@@ -9,6 +9,7 @@ __pycache__/
 .development-secrets
 node_modules/
 dist/
+*.tsbuildinfo
 coverage/
 test-results/
 playwright-report/
