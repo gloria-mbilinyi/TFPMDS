@@ -380,3 +380,27 @@ M frontend/src/App.tsx
  M frontend/src/styles.css
 ?? frontend/src/OrderPages.tsx
 ```
+
+Verified milestone commit: `889eac89f7579d109cde19b03903d4f267acd744`.
+
+## Phase 13e - Delivery and notification interface
+
+Date (UTC): 2026-11-18T11:39:14.361756+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added logistics/transporter dashboards, assignment and milestone forms, shared tracking timeline and in-app notification read actions. Live in-app browser login and dashboard verified; genuine landing/dashboard captures saved.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: TypeScript and Vite build passed. In-app browser confirmed seeded farmer login and live order/payment/listing metrics. Normal sandboxed headless browser launches failed, so browser verification uses the supported in-app browser.
+
+Files changed at this milestone:
+
+```text
+M frontend/src/App.tsx
+ M frontend/src/styles.css
+?? docs/screenshots/
+?? frontend/src/LogisticsPages.tsx
+?? frontend/src/NotificationPage.tsx
+```
