@@ -47,5 +47,7 @@ from .logistics import router as logistics_router
 app.include_router(logistics_router)
 from .notification_api import router as notification_router
 app.include_router(notification_router)
+from .reporting import router as reporting_router
+app.include_router(reporting_router)
 
 

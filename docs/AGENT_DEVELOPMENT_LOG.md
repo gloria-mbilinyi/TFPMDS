@@ -267,3 +267,25 @@ M backend/app/main.py
 ?? backend/app/notification_api.py
 ?? backend/tests/test_notifications.py
 ```
+
+Verified milestone commit: `c66e9687ee43db6a17dd3a3e8bc706860c6e07b2`.
+
+## Phase 12 - Administration and reports
+
+Date (UTC): 2026-11-18T10:49:06.222769+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added administrator analytics, gross simulated sales by produce/region, order-status breakdowns and market-price upsert/delete. Reports explicitly define simulation and return limitations.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Full backend suite: 20 passed. Reporting assertions verified exact amounts, quantities and authorization; market-price validation/update/delete passed.
+
+Files changed at this milestone:
+
+```text
+M backend/app/main.py
+?? backend/app/reporting.py
+?? backend/tests/test_reporting.py
+```
