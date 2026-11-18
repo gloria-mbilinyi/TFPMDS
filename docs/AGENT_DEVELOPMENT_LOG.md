@@ -289,3 +289,24 @@ M backend/app/main.py
 ?? backend/app/reporting.py
 ?? backend/tests/test_reporting.py
 ```
+
+Verified milestone commit: `d1d1f6b11e9f8daf213e69cad55342084e8755e7`.
+
+## Phase 13a - Demo foundation
+
+Date (UTC): 2026-11-18T10:49:21.583980+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added synthetic accounts for all five roles, eight illustrative regional produce listings, reference prices and sample order/payment/shipment journeys. Seed is explicit and non-destructive.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Seed integration test passed, including repeated seeding, preserved records, seeded journeys and demo login.
+
+Files changed at this milestone:
+
+```text
+?? backend/app/seed.py
+?? backend/tests/test_seed.py
+```
