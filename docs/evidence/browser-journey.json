@@ -1,0 +1,87 @@
+{
+  "verified_at": "2026-11-18T12:15:37.333Z",
+  "mode": "Supported in-app browser UI interactions with explicit visible-state checks",
+  "steps": [
+    {
+      "step": 1,
+      "result": "Farmer registration submitted successfully; redirected to login",
+      "email": "demo.farmer.1795003707873@example.com"
+    },
+    {
+      "step": 2,
+      "result": "Administrator approved the new farmer through People & approvals"
+    },
+    {
+      "step": 3,
+      "result": "Approved farmer published 600 kg of rice at TZS 2100/kg",
+      "produce": "Kilosa demonstration rice 07873"
+    },
+    {
+      "step": 4,
+      "result": "Buyer registered and administrator approved the business profile",
+      "email": "demo.buyer.1795003707873@example.com"
+    },
+    {
+      "step": 5,
+      "result": "Buyer found the new rice listing using crop, region, price and quantity filters"
+    },
+    {
+      "step": 6,
+      "result": "Buyer ordered 50 kg; order pending farmer approval",
+      "order_id": 4,
+      "total_tzs": 105000
+    },
+    {
+      "step": 7,
+      "result": "Responsible farmer accepted the buyer order"
+    },
+    {
+      "step": 8,
+      "result": "Buyer completed a successful M-Pesa simulation; no real money or PIN used"
+    },
+    {
+      "step": 9,
+      "result": "System generated a successful simulated payment receipt for TZS 105000",
+      "url": "http://127.0.0.1:5173/receipts/2"
+    },
+    {
+      "step": 10,
+      "result": "Logistics officer assigned Safari Fresh Transport to the paid order",
+      "tracking_url": "http://127.0.0.1:5173/tracking/2"
+    },
+    {
+      "step": 11,
+      "result": "Assigned transporter recorded ready-for-pickup, pickup and in-transit milestones"
+    },
+    {
+      "step": 12,
+      "result": "Farmer and buyer both verified delivered shipment and all six shared events",
+      "farmer_events": 6,
+      "buyer_events": 6
+    },
+    {
+      "step": 13,
+      "result": "Administrator reviewed the completed order and its successful simulated payment receipt"
+    },
+    {
+      "step": 14,
+      "result": "Administrator verified SMS simulation history for registration, order, payment and delivery",
+      "rows": 44
+    }
+  ],
+  "responsive": {
+    "width": 390,
+    "height": 844,
+    "document": 375,
+    "viewport": 390,
+    "navigation_open_close": "passed",
+    "viewport_restored": true
+  },
+  "csv_downloaded": true,
+  "notes": [
+    "Normal headless browser launch was blocked by the restricted shell; the supported in-app browser was used instead.",
+    "Two label selectors were refined after matching nested select option text.",
+    "A tracking count assertion initially ran before React navigation completed; waiting for the tracking heading verified six events for each trading party."
+  ],
+  "result": "passed"
+}

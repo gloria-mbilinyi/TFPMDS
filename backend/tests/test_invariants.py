@@ -76,3 +76,12 @@ def test_expired_tokens_and_mass_assignment(client,db):
     assert client.get('/api/auth/me',headers={'Authorization':'Bearer '+expired}).status_code==401
     body={'name':farmer.name,'phone':farmer.phone,'region':farmer.region,'role':'administrator'}
     assert client.patch('/api/users/me',headers=auth(farmer),json=body).status_code==422
+
+
+def test_postgresql_amount_types_compile_without_integer_overflow():
+    from sqlalchemy.schema import CreateTable
+    from sqlalchemy.dialects import postgresql
+    from app.models import Payment, PaymentReceipt, PurchaseOrder
+    for model,field in [(Payment,'amount_tzs'),(PaymentReceipt,'amount_tzs'),(PurchaseOrder,'total_tzs')]:
+        sql=str(CreateTable(model.__table__).compile(dialect=postgresql.dialect()))
+        assert field+' BIGINT' in sql

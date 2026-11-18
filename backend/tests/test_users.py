@@ -30,3 +30,15 @@ def test_admin_user_management(client, db):
     staff = registration(); staff.pop('role'); staff['email']='driver@example.com'; staff['role']='transporter'
     assert client.post('/api/admin/staff', headers=auth(admin), json=staff).status_code == 201
     assert len(client.get('/api/users/transporters', headers=auth(admin)).json()) == 1
+
+
+def test_buyer_profile_management(client, db):
+    buyer=account(db,'buyer')
+    profile={'name':'Kijiji Produce Buyer','phone':buyer.phone,'region':'Dar es Salaam',
+             'location':'Kariakoo warehouse','business_name':'Kijiji Produce Trading',
+             'farm_size_acres':0,'crop_categories':''}
+    updated=client.patch('/api/users/me',headers=auth(buyer),json=profile)
+    assert updated.status_code==200
+    assert updated.json()['business_name']=='Kijiji Produce Trading'
+    assert updated.json()['status']=='approved'
+    assert client.get('/api/auth/me',headers=auth(buyer)).json()['location']=='Kariakoo warehouse'

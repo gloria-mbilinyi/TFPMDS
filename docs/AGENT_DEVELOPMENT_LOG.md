@@ -537,3 +537,41 @@ Files changed at this milestone:
 ?? scripts/generate_structure_uml.py
 ?? scripts/validate_uml.py
 ```
+
+Verified milestone commit: `79d6b33b50f6894f57c32d559b0db9aa5474b0a3`.
+
+## Phase 15b and 17a - End-to-end verification
+
+Date (UTC): 2026-11-18T12:21:53.754192+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added a fresh-registration backend acceptance test, buyer profile and PostgreSQL type checks, reproducible verification script, and a typed Playwright journey harness. Completed all 14 master-brief steps in the supported in-app browser, CSV download and 390px responsive navigation; captured genuine UI evidence.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Backend: 28 passed with JUnit evidence; frontend: 5 passed with JUnit evidence; Playwright harness typechecked but standard browser execution was blocked by sandbox launch restrictions. Supported in-app browser journey passed with explicit state assertions. Selector ambiguity and an early navigation assertion were corrected during browser verification.
+
+Files changed at this milestone:
+
+```text
+M backend/tests/test_invariants.py
+ M backend/tests/test_users.py
+?? .env.example
+?? backend/tests/test_end_to_end.py
+?? docs/evidence/
+?? docs/screenshots/administrator-approvals.jpg
+?? docs/screenshots/completed-order.jpg
+?? docs/screenshots/farmer-dashboard-full.jpg
+?? docs/screenshots/logistics-assignment.jpg
+?? docs/screenshots/marketplace.jpg
+?? docs/screenshots/mobile-marketplace.jpg
+?? docs/screenshots/payment-receipt.jpg
+?? docs/screenshots/produce-management.jpg
+?? docs/screenshots/reports-analytics.jpg
+?? docs/screenshots/shipment-tracking.jpg
+?? docs/screenshots/sms-simulation-log.jpg
+?? frontend/e2e/
+?? frontend/playwright.config.ts
+?? scripts/verify.ps1
+```
