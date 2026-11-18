@@ -1,0 +1,2439 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TFPMDS API",
+    "description": "Academic local demo. All mobile-money and SMS providers are simulated.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Health",
+        "operationId": "health_api_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "tags": [
+          "authentication"
+        ],
+        "summary": "Register",
+        "operationId": "register_api_auth_register_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Register"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "authentication"
+        ],
+        "summary": "Login",
+        "operationId": "login_api_auth_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": [
+          "authentication"
+        ],
+        "summary": "Me",
+        "operationId": "me_api_auth_me_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOut"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": [
+          "authentication"
+        ],
+        "summary": "Logout",
+        "operationId": "logout_api_auth_logout_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/users/me": {
+      "patch": {
+        "tags": [
+          "users and approvals"
+        ],
+        "summary": "Update Profile",
+        "operationId": "update_profile_api_users_me_patch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Profile"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/users": {
+      "get": {
+        "tags": [
+          "users and approvals"
+        ],
+        "summary": "List Users",
+        "operationId": "list_users_api_admin_users_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/UserOut"
+                  },
+                  "type": "array",
+                  "title": "Response List Users Api Admin Users Get"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/users/{user_id}/approval": {
+      "post": {
+        "tags": [
+          "users and approvals"
+        ],
+        "summary": "Approve",
+        "operationId": "approve_api_admin_users__user_id__approval_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "User Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Approval"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/users/{user_id}/active": {
+      "patch": {
+        "tags": [
+          "users and approvals"
+        ],
+        "summary": "Set Active",
+        "operationId": "set_active_api_admin_users__user_id__active_patch",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "User Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActiveChange"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/staff": {
+      "post": {
+        "tags": [
+          "users and approvals"
+        ],
+        "summary": "Create Staff",
+        "operationId": "create_staff_api_admin_staff_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StaffCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/users/transporters": {
+      "get": {
+        "tags": [
+          "users and approvals"
+        ],
+        "summary": "Transporters",
+        "operationId": "transporters_api_users_transporters_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/UserOut"
+                  },
+                  "type": "array",
+                  "title": "Response Transporters Api Users Transporters Get"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/produce/mine": {
+      "get": {
+        "tags": [
+          "produce management"
+        ],
+        "summary": "Own Produce",
+        "operationId": "own_produce_api_produce_mine_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/produce": {
+      "post": {
+        "tags": [
+          "produce management"
+        ],
+        "summary": "Create",
+        "operationId": "create_api_produce_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProduceInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "marketplace"
+        ],
+        "summary": "Search",
+        "operationId": "search_api_produce_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 100,
+              "default": "",
+              "title": "Q"
+            }
+          },
+          {
+            "name": "crop",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 50,
+              "default": "",
+              "title": "Crop"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 60,
+              "default": "",
+              "title": "Region"
+            }
+          },
+          {
+            "name": "min_price",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Min Price"
+            }
+          },
+          {
+            "name": "max_price",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Max Price"
+            }
+          },
+          {
+            "name": "min_quantity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Min Quantity"
+            }
+          },
+          {
+            "name": "farmer_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Farmer Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 200,
+              "minimum": 1,
+              "default": 100,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/produce/{produce_id}": {
+      "patch": {
+        "tags": [
+          "produce management"
+        ],
+        "summary": "Edit",
+        "operationId": "edit_api_produce__produce_id__patch",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "produce_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Produce Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProduceEdit"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "produce management"
+        ],
+        "summary": "Deactivate",
+        "operationId": "deactivate_api_produce__produce_id__delete",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "produce_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Produce Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "marketplace"
+        ],
+        "summary": "Detail",
+        "operationId": "detail_api_produce__produce_id__get",
+        "parameters": [
+          {
+            "name": "produce_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Produce Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/market-prices": {
+      "get": {
+        "tags": [
+          "marketplace"
+        ],
+        "summary": "Market Prices",
+        "operationId": "market_prices_api_market_prices_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/orders": {
+      "post": {
+        "tags": [
+          "purchase orders"
+        ],
+        "summary": "Create",
+        "operationId": "create_api_orders_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "idempotency-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 80,
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "purchase orders"
+        ],
+        "summary": "History",
+        "operationId": "history_api_orders_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/orders/{order_id}": {
+      "get": {
+        "tags": [
+          "purchase orders"
+        ],
+        "summary": "Detail",
+        "operationId": "detail_api_orders__order_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Order Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/orders/{order_id}/decision": {
+      "post": {
+        "tags": [
+          "purchase orders"
+        ],
+        "summary": "Decide",
+        "operationId": "decide_api_orders__order_id__decision_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Order Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Decision"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments": {
+      "post": {
+        "tags": [
+          "simulated mobile money"
+        ],
+        "summary": "Initiate",
+        "operationId": "initiate_api_payments_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "idempotency-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 80,
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "simulated mobile money"
+        ],
+        "summary": "Transactions",
+        "operationId": "transactions_api_payments_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/mock-callback": {
+      "post": {
+        "tags": [
+          "simulated mobile money"
+        ],
+        "summary": "Callback",
+        "operationId": "callback_api_payments_mock_callback_post",
+        "parameters": [
+          {
+            "name": "x-mock-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Mock-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Callback"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/{payment_id}": {
+      "get": {
+        "tags": [
+          "simulated mobile money"
+        ],
+        "summary": "Status",
+        "operationId": "status_api_payments__payment_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "payment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Payment Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/{payment_id}/simulate": {
+      "post": {
+        "tags": [
+          "simulated mobile money"
+        ],
+        "summary": "Simulate",
+        "operationId": "simulate_api_payments__payment_id__simulate_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "payment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Payment Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentOutcome"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/{payment_id}/receipt": {
+      "get": {
+        "tags": [
+          "simulated mobile money"
+        ],
+        "summary": "Receipt",
+        "operationId": "receipt_api_payments__payment_id__receipt_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "payment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Payment Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/shipments": {
+      "get": {
+        "tags": [
+          "logistics and shipment tracking"
+        ],
+        "summary": "List Shipments",
+        "operationId": "list_shipments_api_shipments_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/shipments/{shipment_id}": {
+      "get": {
+        "tags": [
+          "logistics and shipment tracking"
+        ],
+        "summary": "Detail",
+        "operationId": "detail_api_shipments__shipment_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "shipment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Shipment Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/shipments/{shipment_id}/assign": {
+      "post": {
+        "tags": [
+          "logistics and shipment tracking"
+        ],
+        "summary": "Assign",
+        "operationId": "assign_api_shipments__shipment_id__assign_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "shipment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Shipment Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Assign"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/shipments/{shipment_id}/status": {
+      "post": {
+        "tags": [
+          "logistics and shipment tracking"
+        ],
+        "summary": "Progress",
+        "operationId": "progress_api_shipments__shipment_id__status_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "shipment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Shipment Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/notifications": {
+      "get": {
+        "tags": [
+          "notifications"
+        ],
+        "summary": "History",
+        "operationId": "history_api_notifications_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "unread_only",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Unread Only"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/notifications/read-all": {
+      "post": {
+        "tags": [
+          "notifications"
+        ],
+        "summary": "Read All",
+        "operationId": "read_all_api_notifications_read_all_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/notifications/{notification_id}/read": {
+      "post": {
+        "tags": [
+          "notifications"
+        ],
+        "summary": "Mark Read",
+        "operationId": "mark_read_api_notifications__notification_id__read_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "notification_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Notification Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/sms-log": {
+      "get": {
+        "tags": [
+          "notifications"
+        ],
+        "summary": "Sms Log",
+        "operationId": "sms_log_api_admin_sms_log_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/reports/summary": {
+      "get": {
+        "tags": [
+          "administration and reporting"
+        ],
+        "summary": "Summary",
+        "operationId": "summary_api_reports_summary_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/market-prices": {
+      "post": {
+        "tags": [
+          "administration and reporting"
+        ],
+        "summary": "Save Market Price",
+        "operationId": "save_market_price_api_admin_market_prices_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarketPriceInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/market-prices/{price_id}": {
+      "delete": {
+        "tags": [
+          "administration and reporting"
+        ],
+        "summary": "Delete Price",
+        "operationId": "delete_price_api_admin_market_prices__price_id__delete",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "price_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Price Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActiveChange": {
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "title": "Active"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "active"
+        ],
+        "title": "ActiveChange"
+      },
+      "Approval": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "approved",
+              "rejected"
+            ],
+            "title": "Status"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 3,
+            "title": "Note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "note"
+        ],
+        "title": "Approval"
+      },
+      "Assign": {
+        "properties": {
+          "transporter_id": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Transporter Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "transporter_id"
+        ],
+        "title": "Assign"
+      },
+      "Callback": {
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "successful",
+              "failed",
+              "cancelled"
+            ],
+            "title": "Outcome"
+          },
+          "reference": {
+            "type": "string",
+            "maxLength": 60,
+            "minLength": 5,
+            "title": "Reference"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "outcome",
+          "reference"
+        ],
+        "title": "Callback"
+      },
+      "Decision": {
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "accept",
+              "reject",
+              "cancel",
+              "complete"
+            ],
+            "title": "Action"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 300,
+            "title": "Note",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action"
+        ],
+        "title": "Decision"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Login": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "password": {
+            "type": "string",
+            "maxLength": 128,
+            "title": "Password"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "title": "Login"
+      },
+      "MarketPriceInput": {
+        "properties": {
+          "crop": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 2,
+            "title": "Crop"
+          },
+          "region": {
+            "type": "string",
+            "maxLength": 60,
+            "minLength": 2,
+            "title": "Region"
+          },
+          "price_tzs": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Price Tzs"
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date",
+            "title": "Observed On"
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 3,
+            "title": "Source",
+            "default": "Illustrative demo data"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "crop",
+          "region",
+          "price_tzs",
+          "observed_on"
+        ],
+        "title": "MarketPriceInput"
+      },
+      "OrderCreate": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/OrderLine"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "minItems": 1,
+            "title": "Items"
+          },
+          "delivery_address": {
+            "type": "string",
+            "maxLength": 250,
+            "minLength": 5,
+            "title": "Delivery Address"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "delivery_address"
+        ],
+        "title": "OrderCreate"
+      },
+      "OrderLine": {
+        "properties": {
+          "produce_id": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Produce Id"
+          },
+          "quantity_kg": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Quantity Kg"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "produce_id",
+          "quantity_kg"
+        ],
+        "title": "OrderLine"
+      },
+      "PaymentCreate": {
+        "properties": {
+          "order_id": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Order Id"
+          },
+          "provider": {
+            "type": "string",
+            "enum": [
+              "mpesa",
+              "airtel_money",
+              "tigo_pesa"
+            ],
+            "title": "Provider"
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^\\+255[67]\\d{8}$",
+            "title": "Phone"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "order_id",
+          "provider",
+          "phone"
+        ],
+        "title": "PaymentCreate"
+      },
+      "PaymentOutcome": {
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "successful",
+              "failed",
+              "cancelled"
+            ],
+            "title": "Outcome"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "outcome"
+        ],
+        "title": "PaymentOutcome"
+      },
+      "ProduceEdit": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 2,
+            "title": "Name"
+          },
+          "crop": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 2,
+            "title": "Crop"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Description",
+            "default": ""
+          },
+          "available_kg": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "minimum": 0.0,
+            "title": "Available Kg"
+          },
+          "price_tzs": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Price Tzs"
+          },
+          "harvest_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Harvest Date"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "crop",
+          "available_kg",
+          "price_tzs",
+          "harvest_date"
+        ],
+        "title": "ProduceEdit"
+      },
+      "ProduceInput": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 2,
+            "title": "Name"
+          },
+          "crop": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 2,
+            "title": "Crop"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Description",
+            "default": ""
+          },
+          "available_kg": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "minimum": 0.0,
+            "title": "Available Kg"
+          },
+          "price_tzs": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Price Tzs"
+          },
+          "harvest_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Harvest Date"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "crop",
+          "available_kg",
+          "price_tzs",
+          "harvest_date"
+        ],
+        "title": "ProduceInput"
+      },
+      "Profile": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 2,
+            "title": "Name"
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^\\+255[67]\\d{8}$",
+            "title": "Phone"
+          },
+          "region": {
+            "type": "string",
+            "maxLength": 60,
+            "minLength": 2,
+            "title": "Region"
+          },
+          "location": {
+            "type": "string",
+            "maxLength": 160,
+            "title": "Location",
+            "default": ""
+          },
+          "farm_size_acres": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "minimum": 0.0,
+            "title": "Farm Size Acres",
+            "default": 0
+          },
+          "crop_categories": {
+            "type": "string",
+            "maxLength": 250,
+            "title": "Crop Categories",
+            "default": ""
+          },
+          "business_name": {
+            "type": "string",
+            "maxLength": 160,
+            "title": "Business Name",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "phone",
+          "region"
+        ],
+        "title": "Profile"
+      },
+      "Register": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 2,
+            "title": "Name"
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^\\+255[67]\\d{8}$",
+            "title": "Phone"
+          },
+          "region": {
+            "type": "string",
+            "maxLength": 60,
+            "minLength": 2,
+            "title": "Region"
+          },
+          "location": {
+            "type": "string",
+            "maxLength": 160,
+            "title": "Location",
+            "default": ""
+          },
+          "farm_size_acres": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "minimum": 0.0,
+            "title": "Farm Size Acres",
+            "default": 0
+          },
+          "crop_categories": {
+            "type": "string",
+            "maxLength": 250,
+            "title": "Crop Categories",
+            "default": ""
+          },
+          "business_name": {
+            "type": "string",
+            "maxLength": 160,
+            "title": "Business Name",
+            "default": ""
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "password": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 10,
+            "title": "Password"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "farmer",
+              "buyer"
+            ],
+            "title": "Role"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "phone",
+          "region",
+          "email",
+          "password",
+          "role"
+        ],
+        "title": "Register"
+      },
+      "ShipmentUpdate": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "awaiting_transporter",
+              "assignment_failed",
+              "ready_for_pickup",
+              "picked_up",
+              "in_transit",
+              "delivered",
+              "delivery_failed",
+              "return_requested",
+              "returned"
+            ],
+            "title": "Status"
+          },
+          "location": {
+            "type": "string",
+            "maxLength": 160,
+            "minLength": 2,
+            "title": "Location"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 300,
+            "title": "Note",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "location"
+        ],
+        "title": "ShipmentUpdate"
+      },
+      "StaffCreate": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 2,
+            "title": "Name"
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^\\+255[67]\\d{8}$",
+            "title": "Phone"
+          },
+          "region": {
+            "type": "string",
+            "maxLength": 60,
+            "minLength": 2,
+            "title": "Region"
+          },
+          "location": {
+            "type": "string",
+            "maxLength": 160,
+            "title": "Location",
+            "default": ""
+          },
+          "farm_size_acres": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "minimum": 0.0,
+            "title": "Farm Size Acres",
+            "default": 0
+          },
+          "crop_categories": {
+            "type": "string",
+            "maxLength": 250,
+            "title": "Crop Categories",
+            "default": ""
+          },
+          "business_name": {
+            "type": "string",
+            "maxLength": 160,
+            "title": "Business Name",
+            "default": ""
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "password": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 10,
+            "title": "Password"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "logistics",
+              "transporter"
+            ],
+            "title": "Role"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "phone",
+          "region",
+          "email",
+          "password",
+          "role"
+        ],
+        "title": "StaffCreate"
+      },
+      "UserOut": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 2,
+            "title": "Name"
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^\\+255[67]\\d{8}$",
+            "title": "Phone"
+          },
+          "region": {
+            "type": "string",
+            "maxLength": 60,
+            "minLength": 2,
+            "title": "Region"
+          },
+          "location": {
+            "type": "string",
+            "maxLength": 160,
+            "title": "Location",
+            "default": ""
+          },
+          "farm_size_acres": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "minimum": 0.0,
+            "title": "Farm Size Acres",
+            "default": 0
+          },
+          "crop_categories": {
+            "type": "string",
+            "maxLength": 250,
+            "title": "Crop Categories",
+            "default": ""
+          },
+          "business_name": {
+            "type": "string",
+            "maxLength": 160,
+            "title": "Business Name",
+            "default": ""
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "active": {
+            "type": "boolean",
+            "title": "Active"
+          },
+          "verification_note": {
+            "type": "string",
+            "title": "Verification Note"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "phone",
+          "region",
+          "id",
+          "email",
+          "role",
+          "status",
+          "active",
+          "verification_note",
+          "created_at"
+        ],
+        "title": "UserOut"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

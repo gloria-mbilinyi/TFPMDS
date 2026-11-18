@@ -575,3 +575,30 @@ M backend/tests/test_invariants.py
 ?? frontend/playwright.config.ts
 ?? scripts/verify.ps1
 ```
+
+Verified milestone commit: `31ab736c7697e09453b937ffa3874cdd9a28f5e6`.
+
+## Phase 16a - Reproducible technical references
+
+Date (UTC): 2026-11-18T12:36:23.007749+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Completed Windows installation/demo instructions, linked all 61 requirements to real passing tests and UML, and generated OpenAPI and relational DDL references from source.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: Evidence generator verified 61/61 requirements, 28 backend and 5 frontend passing cases, 14 browser steps and 34 API paths. Corrected documented database/secret locations against actual configuration. Initial documentation patch formatting was corrected before applying.
+
+Files changed at this milestone:
+
+```text
+M README.md
+?? docs/API_REFERENCE.md
+?? docs/DEMO_GUIDE.md
+?? docs/REQUIREMENTS_TRACEABILITY.md
+?? docs/database-schema.sql
+?? docs/evidence/acceptance-results.json
+?? docs/openapi.json
+?? scripts/build_evidence_docs.py
+```
