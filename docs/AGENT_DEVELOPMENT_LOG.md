@@ -602,3 +602,27 @@ M README.md
 ?? docs/openapi.json
 ?? scripts/build_evidence_docs.py
 ```
+
+Verified milestone commit: `f5e5f9fa10ef67dc40e777ef77c11e8459012734`.
+
+## Phase 16 - Technical proposal and PDF
+
+Date (UTC): 2026-11-18T13:27:20.361328+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Authored the academic report with 27 numbered sections, a full acceptance appendix, real UI captures and readable mixed-size UML figure sheets. Generated the reviewed 45-page PDF and editable Markdown source.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: PDF reopened successfully: 45 pages, 27 outline entries, 18 figure pages, all 61 requirement IDs and 62 link annotations; no unexpected blank pages. Rendered every page with Poppler and inspected final contact sheets and selected full pages. Section validation caught a duplicate References heading; TOC spacing and table widths were corrected before final review.
+
+Files changed at this milestone:
+
+```text
+?? docs/TECHNICAL_PROPOSAL.md
+?? docs/TFPMDS_Technical_Proposal.pdf
+?? docs/evidence/pdf-validation.json
+?? scripts/build_proposal.py
+?? scripts/validate_proposal.py
+```
