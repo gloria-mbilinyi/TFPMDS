@@ -331,3 +331,26 @@ Files changed at this milestone:
 M .gitignore
 ?? frontend/
 ```
+
+Verified milestone commit: `703b7d8a6cae4a36c8b4485175484c823e121a93`.
+
+## Phase 13c - Trading interface
+
+Date (UTC): 2026-11-18T10:59:26.527032+00:00
+
+Human guidance: implement the TFPMDS master brief; continue locally, preserve identity, and never push.
+
+Agent work: Added farmer listing forms, edits/deactivation, detailed produce availability and approved-buyer order placement with persistent request idempotency. Moved the local API to free port 8010.
+
+Technical decision: Follow the approved local-only development plan.
+
+Checks actually executed: TypeScript and Vite build passed; existing frontend authentication tests: 2 passed. Headless browser preview captured the landing page. A draft CSS patch mismatch was corrected before applying.
+
+Files changed at this milestone:
+
+```text
+M frontend/src/App.tsx
+ M frontend/src/styles.css
+ M frontend/vite.config.ts
+?? frontend/src/ProducePages.tsx
+```
