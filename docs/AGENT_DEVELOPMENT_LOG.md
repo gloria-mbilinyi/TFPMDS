@@ -726,3 +726,15 @@ Checks actually executed: document coverage/OOXML validation, original PDF bound
 Git evidence: implementation commit `125617398614c10f342260b779c6bf2db34143a6`. The original owner-published baseline contains 26 commits ending at `ddc2e8aacc48ece0dfad27b19e5f26317f56cd58`. The current local author name is `gloria-mbilinyi`, with the previously confirmed `gloriambilinyi5@gmail.com`; these associated local settings were checked and preserved. No push, collaborator change, ownership change, history rewrite or global Git setting change was performed.
 
 This closing verification commit contains the completed report and preceding actual commit hashes. Its own hash is recoverable from Git and the final delivery manifest. The only remaining submission entries are the four explicit academic cover placeholders.
+
+## Dedicated export of all editable UML diagrams
+
+Date (EAT): 2026-11-19T10:32:24.056274+03:00
+
+Human guidance: export all eight existing editable UML sources under the exact numbered filenames in TFPMDS_ALL_DRAWIO_DIAGRAMS, include PNG_PREVIEWS, verify the complete ZIP, and do not push.
+
+Agent work: added scripts/export_all_drawio.py, copied the eight existing draw.io documents and eight high-resolution PNG exports byte for byte, supplied opening/editing instructions, source mappings, editor-verification evidence and SHA256 checksums, and built the dedicated ZIP. No diagram was unnecessarily recreated or altered.
+
+Checks actually executed: all 40 editable XML pages parsed; cell IDs, parent/connector references and editable native geometry passed; no flattened image cells were present. Source-to-export hashes matched for every XML and PNG. All eight XML hashes matched the existing observed draw.io editor opening records, so those exact-content open checks remain applicable. This export did not falsely claim a new UI session. Existing UML/domain/catalogue checks passed for all 84 messages, 15 participants, guards, states and dependency relationships. Eight PNGs verified at 3060-3720 pixels wide. ZIP CRC, membership and every archived file digest passed. Python compilation and Git whitespace checks passed.
+
+Source/verification baseline before this packaging milestone: `79a08c0f0b9f477c33fb55e0f339dae8a926e97d`. The current local author gloria-mbilinyi with gloriambilinyi5@gmail.com was checked and preserved; no Git setting was changed. The export-tool commit is discoverable through this ledger and the generated verification report. No pushes, collaborator changes, ownership changes or history rewrites were performed.
