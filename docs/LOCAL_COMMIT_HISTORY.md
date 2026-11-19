@@ -1,6 +1,6 @@
 # Local development commit ledger
 
-The 28 commits below are genuine non-empty milestones through the academic verification handoff. The following export-tool commit preserves the requested numbered UML delivery without altering any diagram. Codex has not pushed commits.
+The 29 commits below are genuine non-empty milestones through the dedicated UML export. The following README milestone improves the project presentation while preserving installation commands, demonstration accounts, evidence and limitations. Codex has not pushed commits.
 
 | Milestone | Full commit hash | Implemented functionality |
 | --- | --- | --- |
@@ -32,7 +32,8 @@ The 28 commits below are genuine non-empty milestones through the academic verif
 | 26 | ddc2e8aacc48ece0dfad27b19e5f26317f56cd58 | docs: close verified local development and commit ledger |
 | 27 | 125617398614c10f342260b779c6bf2db34143a6 | docs: correct academic report and add editable Word parts |
 | 28 | 79a08c0f0b9f477c33fb55e0f339dae8a926e97d | docs: record academic verification and submission handoff |
+| 29 | 1b38a5786b5365453a02490159340bbced4ecde0 | chore: package all editable UML diagrams and PNG previews |
 
-The UML export-tool commit containing this updated ledger follows these entries. Its own hash appears in the generated export VERIFICATION_REPORT.json and Git history; it cannot be embedded inside itself.
+The README improvement commit containing this updated ledger follows these entries. Its own hash is available in Git history and the local review delivery; it cannot be embedded inside itself.
 
 Official remote: https://github.com/gloria-mbilinyi/TFPMDS.git. Branch: main. The owner published the original 26-commit baseline; later milestones remain local.
